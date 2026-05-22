@@ -1,43 +1,43 @@
 
-FALL_TIME_L DATA 51H       ;µ¹¼ÆÊ±¼ÆÊ±µÍ8Î»
-FALL_TIME_H DATA 52H       ;µ¹¼ÆÊ±¼ÆÊ±¸ß8Î»
-TIME_L DATA 53H       ;¼ÆÊ±µÍ8Î»
-TIME_H DATA 54H       ;¼ÆÊ±¸ß8Î»
-TIME_WEEK DATA 56H       ;ÐÇÆÚ´æ·Åµ¥Ôª
-TIME_WEEK_1 DATA 5CH ;Äê·ÝµÍÁ½Î»´æ·Åµ¥Ôª(BCDÂë)
-TIME_WEEK_2 DATA 5DH ;Äê·ÝµÍÁ½Î»´æ·Åµ¥Ôª(BCDÂë)
-TIME_WEEK_3 DATA 5EH ;ÔÂ·Ý´æ·Åµ¥Ôª(BCDÂë)
-TIME_WEEK_4 DATA 5FH ;ÈÕ´æ·Åµ¥Ôª(BCDÂë)
-TIME_WEEK_5 DATA 55H ;ÈÕ´æ·Åµ¥Ôª(BCDÂë)
+FALL_TIME_L DATA 51H       ;ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê±ï¿½ï¿½8Î»
+FALL_TIME_H DATA 52H       ;ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê±ï¿½ï¿½8Î»
+TIME_L DATA 53H       ;ï¿½ï¿½Ê±ï¿½ï¿½8Î»
+TIME_H DATA 54H       ;ï¿½ï¿½Ê±ï¿½ï¿½8Î»
+TIME_WEEK DATA 56H       ;ï¿½ï¿½ï¿½Ú´ï¿½Åµï¿½Ôª
+TIME_WEEK_1 DATA 5CH ;ï¿½ï¿½Ýµï¿½ï¿½ï¿½Î»ï¿½ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+TIME_WEEK_2 DATA 5DH ;ï¿½ï¿½Ýµï¿½ï¿½ï¿½Î»ï¿½ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+TIME_WEEK_3 DATA 5EH ;ï¿½Â·Ý´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+TIME_WEEK_4 DATA 5FH ;ï¿½Õ´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+TIME_WEEK_5 DATA 55H ;ï¿½Õ´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
 
 TEMP_BYTE1 DATA 57H
 TEMP_BYTE2 DATA 58H
 TEMP_BYTE3 DATA 59H
 TEMP_BYTE4 DATA 5AH
-UPRIGHT_TIME_FLAG DATA 5BH    //Õý¼ÆÊ±±êÖ¾Î»
-TIME_ADJUST_MODE DATA 50H     //Ä£Ê½Ñ¡Ôñ
-TIME_FALL_FLAG BIT 20H.1      //µ¹¼ÆÊ±±êÖ¾Î»
-UPRIGHT_TIME_NUMBER DATA 3FH  //Õý¼ÆÊ±¶à¶ÎÊ±¼ä¼ÇÂ¼µÄÊýÁ¿
-TIME_H_3 DATA 3EH             //3¸öÕý¼ÆÊ±½Úµã¼ÇÂ¼
+UPRIGHT_TIME_FLAG DATA 5BH    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö¾Î»
+TIME_ADJUST_MODE DATA 50H     //Ä£Ê½Ñ¡ï¿½ï¿½
+TIME_FALL_FLAG BIT 20H.1      //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö¾Î»
+UPRIGHT_TIME_NUMBER DATA 3FH  //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+TIME_H_3 DATA 3EH             //3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Úµï¿½ï¿½Â¼
 TIME_L_3 DATA 3DH 	
 TIME_H_2 DATA 3CH       
 TIME_L_2 DATA 3BH 
 TIME_H_1 DATA 3AH       
 TIME_L_1 DATA 39H       
-TIME_ADJUST_FLAG DATA 38H    //ÉÁË¸±êÖ¾   
+TIME_ADJUST_FLAG DATA 38H    //ï¿½ï¿½Ë¸ï¿½ï¿½Ö¾   
 TIME_DELAY_FLAG DATA 37H
-YEARH DATA 36H ;Äê·Ý¸ßÁ½Î»
-YEARL DATA 35H ;Äê·ÝµÍÁ½Î»´æ·Åµ¥Ôª(BCDÂë)
-MONTH DATA 34H ;ÔÂ·Ý´æ·Åµ¥Ôª(BCDÂë)
-DAY DATA 33H ;ÈÕ´æ·Åµ¥Ôª(BCDÂë)
-HOUR DATA 32H ;Ê±´æ·Åµ¥Ôª(BCDÂë)
-MINUTE DATA 31H ;·Ö´æ·Åµ¥Ôª(BCDÂë)
-SEC DATA 30H ;Ãë´æ·Åµ¥Ôª(BCDÂë)
+YEARH DATA 36H ;ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½Î»
+YEARL DATA 35H ;ï¿½ï¿½Ýµï¿½ï¿½ï¿½Î»ï¿½ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+MONTH DATA 34H ;ï¿½Â·Ý´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+DAY DATA 33H ;ï¿½Õ´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+HOUR DATA 32H ;Ê±ï¿½ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+MINUTE DATA 31H ;ï¿½Ö´ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
+SEC DATA 30H ;ï¿½ï¿½ï¿½Åµï¿½Ôª(BCDï¿½ï¿½)
 TIMES DATA 21H
-; DS1302Òý½Å¶¨Òå
-RST    BIT P1.2      ; ¸´Î»Òý½Å
-SCLK   BIT P1.7      ; ´®ÐÐÊ±ÖÓ
-IO     BIT P2.7      ; Êý¾ÝÏß
+; DS1302ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½
+RST    BIT P1.2      ; ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+SCLK   BIT P1.7      ; ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+IO     BIT P2.7      ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 TIME_ADJUST BIT P3.1
 ADD_ONE BIT P3.2
@@ -51,30 +51,30 @@ LCD_E BIT P2.5
 BUZZER BIT P2.3
 LCD_DATA EQU P0
 MODE_NUMBER SET 3
-READ_SEC   EQU 0x81   ; ¶ÁÃë
-READ_MIN   EQU 0x83   ; ¶Á·Ö
-READ_HOUR  EQU 0x85   ; ¶ÁÊ±
-READ_DAY   EQU 0x87   ; ¶ÁÈÕ
-READ_MONTH EQU 0x89   ; ¶ÁÔÂ
-READ_WEEK  EQU 0x8B   ; ¶ÁÐÇÆÚ
-READ_YEAR  EQU 0x8D   ; ¶ÁÄê
+READ_SEC   EQU 0x81   ; ï¿½ï¿½ï¿½ï¿½
+READ_MIN   EQU 0x83   ; ï¿½ï¿½ï¿½ï¿½
+READ_HOUR  EQU 0x85   ; ï¿½ï¿½Ê±
+READ_DAY   EQU 0x87   ; ï¿½ï¿½ï¿½ï¿½
+READ_MONTH EQU 0x89   ; ï¿½ï¿½ï¿½ï¿½
+READ_WEEK  EQU 0x8B   ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+READ_YEAR  EQU 0x8D   ; ï¿½ï¿½ï¿½ï¿½
 ;bz1 BIT 21H.0
 ;time_adjust_flag BIT 20H
-ORG 0000H          ;³ÌÐòÖ´ÐÐ¿ªÊ¼µØÖ·\n
-LJMP  START  ;Ìøµ½±êºÅSTARTÖ´ÐÐ\n
+ORG 0000H          ;ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¿ï¿½Ê¼ï¿½ï¿½Ö·\n
+LJMP  START  ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½STARTÖ´ï¿½ï¿½\n
 ORG 0030H 
-;ORG 0003H          ;ÍâÖÐ¶Ï0ÖÐ¶Ï³ÌÐòÈë¿Ú\n
-;RETI                     ;ÍâÖÐ¶Ï0ÖÐ¶Ï·µ»Ø\n
-ORG 000BH        ;¶¨Ê±Æ÷T0ÖÐ¶Ï³ÌÐò\n
-;LJMP  INTT0  ;ÌøÖÁINTTOÖ´ÐÐ\n
-;ORG 0013H        ;ÍâÖÐ¶Ï1ÖÐ¶Ï³ÌÐòÈë¿Ú\n
-;RETI                   ;ÍâÖÐ¶Ï1ÖÐ¶Ï·µ»Ø\n
-ORG 001BH        ;¶¨Ê±Æ÷T1ÖÐ¶Ï³ÌÐòÈë¿Ú\n
-LJMP  INTT1  ;ÌøÖÁINTTOÖ´ÐÐ\n
+;ORG 0003H          ;ï¿½ï¿½ï¿½Ð¶ï¿½0ï¿½Ð¶Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n
+;RETI                     ;ï¿½ï¿½ï¿½Ð¶ï¿½0ï¿½Ð¶Ï·ï¿½ï¿½ï¿½\n
+ORG 000BH        ;ï¿½ï¿½Ê±ï¿½ï¿½T0ï¿½Ð¶Ï³ï¿½ï¿½ï¿½\n
+;LJMP  INTT0  ;ï¿½ï¿½ï¿½ï¿½INTTOÖ´ï¿½ï¿½\n
+;ORG 0013H        ;ï¿½ï¿½ï¿½Ð¶ï¿½1ï¿½Ð¶Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n
+;RETI                   ;ï¿½ï¿½ï¿½Ð¶ï¿½1ï¿½Ð¶Ï·ï¿½ï¿½ï¿½\n
+ORG 001BH        ;ï¿½ï¿½Ê±ï¿½ï¿½T1ï¿½Ð¶Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n
+LJMP  INTT1  ;ï¿½ï¿½ï¿½ï¿½INTTOÖ´ï¿½ï¿½\n
 ;RETI
-;ORG 0023H        ;´®ÐÐÖÐ¶Ï³ÌÐòÈë¿ÚµØÖ·
-;RETI                    ;´®ÐÐÖÐ¶Ï³ÌÐò·µ»Ø\n
-START:               ;Ö÷ ³Ì Ðò  
+;ORG 0023H        ;ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï³ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ö·
+;RETI                    ;ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï³ï¿½ï¿½ò·µ»ï¿½\n
+START:               ;ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½  
      
      MOV R0,#30H
      MOV R7,#16
@@ -86,25 +86,25 @@ START:               ;Ö÷ ³Ì Ðò
 	 MOV TIME_ADJUST_FLAG,#0
 	 MOV TIME_ADJUST_MODE,#0
 	 SETB TIME_FALL_FLAG
-;     MOV TIMES,#00H ;Çåµ÷Ê±±êÖ¾
-     MOV TMOD,#11H ;ÉèT0Îª16Î»¶¨Ê±Æ÷    ¼ÆÊ±ÓÃ£©
-     MOV TH0,#63H ;40MS¶¨Ê±³õÖµ
-     MOV TL0,#0C0H ;40MS¶¨Ê±³õÖµ£¨T0
-	 MOV TH1, #0D8H       ; ¸ßÎ»
-     MOV TL1, #0F0H       ; µÍÎ»
+;     MOV TIMES,#00H ;ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö¾
+     MOV TMOD,#11H ;ï¿½ï¿½T0Îª16Î»ï¿½ï¿½Ê±ï¿½ï¿½    ï¿½ï¿½Ê±ï¿½Ã£ï¿½
+     MOV TH0,#63H ;40MSï¿½ï¿½Ê±ï¿½ï¿½Öµ
+     MOV TL0,#0C0H ;40MSï¿½ï¿½Ê±ï¿½ï¿½Öµï¿½ï¿½T0
+	 MOV TH1, #0D8H       ; ï¿½ï¿½Î»
+     MOV TL1, #0F0H       ; ï¿½ï¿½Î»
 	 
-	  ; ³õÊ¼»¯IO¿Ú: ½«IOÉèÎªÊäÈë(ÖÃ1)
+	  ; ï¿½ï¿½Ê¼ï¿½ï¿½IOï¿½ï¿½: ï¿½ï¿½IOï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½1)
      SETB    IO
      CLR     SCLK
      CLR     RST
-	 SETB EA    ;¿ªÆô×ÜÖÐ¶Ï
-;	 SETB ET0    ;¿ªÆô¶¨Ê±Æ÷ÖÐ¶Ï
-	 SETB ET1    ;¿ªÆô¶¨Ê±Æ÷ÖÐ¶Ï
-;	 SETB TR0    ;Æô¶¯¶¨Ê±Æ÷
-	 SETB PT1    ; ¶¨Ê±Æ÷1¸ßÓÅÏÈ¼¶
+	 SETB EA    ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+;	 SETB ET0    ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ð¶ï¿½
+	 SETB ET1    ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ð¶ï¿½
+;	 SETB TR0    ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	 SETB PT1    ; ï¿½ï¿½Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½
 	 MOV R4,#19H
 	 CALL LCD_INIT
-	 MOV DPTR,#SITE_DATA  //ÉèÖÃµ÷ÕûµØÖ·
+	 MOV DPTR,#SITE_DATA  //ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 	 MOV TIME_DELAY_FLAG,#0FH
 	 MOV YEARH,#20H
 	 MOV YEARL,#26H
@@ -121,13 +121,13 @@ START:               ;Ö÷ ³Ì Ðò
 	 LCALL DS1302_Enable_Write
 	 MOV     R7, #85H
      LCALL   DS1302_READ
-	 MOV     HOUR, A              ; ´æµ½Ê±±äÁ¿
+	 MOV     HOUR, A              ; ï¿½æµ½Ê±ï¿½ï¿½ï¿½ï¿½
 	 MOV     R7, #84H
-	 MOV     A, HOUR       ; ÖØÐÂ¼ÓÔØÐ¡Ê±Öµ
-     ANL     A, #7FH       ; ÇåÁã×î¸ßÎ»£¨µÚ8Î»£©£¬±£ÁôµÍ7Î»
-     MOV     R6, A         ; ±£´æ´¦ÀíºóµÄÖµµ½R6
+	 MOV     A, HOUR       ; ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ð¡Ê±Öµ
+     ANL     A, #7FH       ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½8Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7Î»
+     MOV     R6, A         ; ï¿½ï¿½ï¿½æ´¦ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½R6
      LCALL   DS1302_WRITE
-	 LCALL   DS1302_Disable_Write         ; ¿ªÆôÐ´±£»¤
+	 LCALL   DS1302_Disable_Write         ; ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
 	 MAIN:
 	 MOV A,TIME_ADJUST_FLAG
      CJNE A,#0,main1
@@ -136,27 +136,27 @@ START:               ;Ö÷ ³Ì Ðò
 	 main1:
 	 LCALL WRITE_ALL_TIME
 	 main2:
-	 CALL WEEK   //Ëã³öÐÇÆÚ
-	 CALL SHOW   //ÏÔÊ¾
-	 CALL KEY_SCAN  //°´¼üÂß¼­¿ØÖÆ
+	 CALL WEEK   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 CALL SHOW   //ï¿½ï¿½Ê¾
+	 CALL KEY_SCAN  //ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	 LJMP  MAIN
 	 
 GET_TIME:
     MOV     R7, #81H
     LCALL   DS1302_READ
-	MOV     SEC, A              ; ´æµ½Ãë±äÁ¿
+	MOV     SEC, A              ; ï¿½æµ½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MOV     R7, #83H
     LCALL   DS1302_READ
-	MOV     MINUTE, A              ; ´æµ½·Ö±äÁ¿
+	MOV     MINUTE, A              ; ï¿½æµ½ï¿½Ö±ï¿½ï¿½ï¿½
 	MOV     R7, #85H
     LCALL   DS1302_READ
-	MOV     HOUR, A              ; ´æµ½Ê±±äÁ¿
+	MOV     HOUR, A              ; ï¿½æµ½Ê±ï¿½ï¿½ï¿½ï¿½
 	MOV     R7, #87H
     LCALL   DS1302_READ
-	MOV     MONTH, A              ; ´æµ½ÔÂ±äÁ¿
+	MOV     MONTH, A              ; ï¿½æµ½ï¿½Â±ï¿½ï¿½ï¿½
 	MOV     R7, #8DH
     LCALL   DS1302_READ
-	MOV     YEARL, A              ; ´æµ½Äê±äÁ¿
+	MOV     YEARL, A              ; ï¿½æµ½ï¿½ï¿½ï¿½ï¿½ï¿½
 	RET
 WRITE_ALL_TIME:
      LCALL DS1302_Enable_Write
@@ -175,7 +175,7 @@ WRITE_ALL_TIME:
 	 MOV     R7, #8CH
      MOV     R6, YEARL         
      LCALL   DS1302_WRITE
-	 LCALL   DS1302_Disable_Write         ; ¿ªÆôÐ´±£»¤
+	 LCALL   DS1302_Disable_Write         ; ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
 	 RET
 DS1302_Enable_Write:
     CLR     RST
@@ -191,15 +191,15 @@ DS1302_Disable_Write:
     MOV     R6, #80H
     LCALL   DS1302_WRITE
     RET	 
-; BCD Âë×ªÊ®½øÖÆ (¶þ½øÖÆ) ×Ó³ÌÐò
-; Èë¿Ú: A = BCD Âë (Èç 0x35)
-; ³ö¿Ú: A = Ê®½øÖÆÊýÖµ (Èç 35)
-; Ô­Àí: Ê®Î»*10 + ¸öÎ»
+; BCD ï¿½ï¿½×ªÊ®ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½Ó³ï¿½ï¿½ï¿½
+; ï¿½ï¿½ï¿½: A = BCD ï¿½ï¿½ (ï¿½ï¿½ 0x35)
+; ï¿½ï¿½ï¿½ï¿½: A = Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ (ï¿½ï¿½ 35)
+; Ô­ï¿½ï¿½: Ê®Î»*10 + ï¿½ï¿½Î»
 ;--------------------------------------------------------------------
 BCD_TO_DEC:
     PUSH    B
     MOV     B, A
-    ANL     A, #0FH         ; ¸öÎ»
+    ANL     A, #0FH         ; ï¿½ï¿½Î»
     MOV     R2, A
     MOV     A, B
     SWAP    A
@@ -210,63 +210,63 @@ BCD_TO_DEC:
     POP     B
     RET
 ;------------------------------------------------------
-; ´ÓDS1302Ö¸¶¨ÃüÁîµØÖ·¶ÁÒ»¸ö×Ö½Ú (ÃüÁîÔÚAÖÐ)
-; ·µ»ØÊý¾ÝÔÚAÖÐ
+; ï¿½ï¿½DS1302Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½)
+; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½
 ;------------------------------------------------------
 DS1302_READ:
     CLR     RST
     CLR     SCLK
     SETB    RST
-    MOV     A, R7           ; ·¢ËÍµØÖ·
+    MOV     A, R7           ; ï¿½ï¿½ï¿½Íµï¿½Ö·
     LCALL   DS1302_WRITE_BYTE
-    SETB    IO              ; ÇÐ»» IO ÎªÊäÈë£¨51 ¶ÁÒý½ÅÇ°ÏÈÐ´ 1£©
+    SETB    IO              ; ï¿½Ð»ï¿½ IO Îªï¿½ï¿½ï¿½ë£¨51 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ð´ 1ï¿½ï¿½
     LCALL   DS1302_READ_BYTE
     CLR     SCLK
     CLR     RST
     RET
 
-; ´Ó DS1302 Ö¸¶¨µØÖ·¶ÁÈ¡Ò»¸öÊý¾Ý×Ö½Ú
-; Èë¿Ú£ºR7 = ÃüÁîµØÖ·£¨Èç 0x81 ¶ÁÃë£©
-; ³ö¿Ú£ºA = ¶Á³öµÄÊý¾Ý
+; ï¿½ï¿½ DS1302 Ö¸ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½
+; ï¿½ï¿½Ú£ï¿½R7 = ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ 0x81 ï¿½ï¿½ï¿½ë£©
+; ï¿½ï¿½ï¿½Ú£ï¿½A = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ;------------------------------------------------
 DS1302_WRITE:
     CLR     RST
     CLR     SCLK
     SETB    RST
-    MOV     A, R7           ; ·¢ËÍµØÖ·
+    MOV     A, R7           ; ï¿½ï¿½ï¿½Íµï¿½Ö·
     LCALL   DS1302_WRITE_BYTE
-    MOV     A, R6           ; ·¢ËÍÊý¾Ý
+    MOV     A, R6           ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     LCALL   DS1302_WRITE_BYTE
     CLR     SCLK
     CLR     RST
     RET
-; Ïò DS1302 Ð´ÈëÒ»¸ö×Ö½Ú£¨µÍÎ»ÏÈ£©
+; ï¿½ï¿½ DS1302 Ð´ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½Ú£ï¿½ï¿½ï¿½Î»ï¿½È£ï¿½
 DS1302_WRITE_BYTE:
     PUSH    ACC
-    MOV     R7, #8          ; 8 Î»Êý¾Ý
+    MOV     R7, #8          ; 8 Î»ï¿½ï¿½ï¿½ï¿½
 WB_LOOP:
-    CLR     SCLK            ; Ê±ÖÓÀ­µÍ
-    RRC     A               ; µÍÎ»ÒÆÈë CY
-    MOV     IO, C           ; Êä³öÊý¾ÝÎ»
-    SETB    SCLK            ; Ê±ÖÓÉÏÉýÑØ£¬DS1302 ²ÉÑù
+    CLR     SCLK            ; Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    RRC     A               ; ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ CY
+    MOV     IO, C           ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+    SETB    SCLK            ; Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½DS1302 ï¿½ï¿½ï¿½ï¿½
     DJNZ    R7, WB_LOOP
     POP     ACC
     RET
-//´ÓDS1302¶ÁÈ¡Ò»¸ö×Ö½Ú (·µ»ØÊý¾ÝÔÚAÖÐ)	 
+//ï¿½ï¿½DS1302ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ö½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½)	 
 DS1302_READ_BYTE:
     PUSH  B
     MOV   R6, #8
     MOV   B, #0
 RB_LOOP:
-    SETB  SCLK             ; À­¸ßÊ±ÖÓ£¬×¼±¸
+    SETB  SCLK             ; ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó£ï¿½×¼ï¿½ï¿½
     NOP
 	NOP
-    CLR   SCLK             ; ¡ï ÏÂ½µÑØ: DS1302ÔÚ´Ë¿Ì¸Ä±äIOÒý½ÅÊý¾Ý
+    CLR   SCLK             ; ï¿½ï¿½ ï¿½Â½ï¿½ï¿½ï¿½: DS1302ï¿½Ú´Ë¿Ì¸Ä±ï¿½IOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	NOP
     NOP
-    MOV   C, IO            ; Á¢¼´¶ÁÈ¡ÎÈ¶¨µÄÊý¾Ý
+    MOV   C, IO            ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½È¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     MOV   A, B
-    RRC   A                ; ½«¶ÁÈëµÄÎ»·ÅÈëACCµÄµÍÎ»
+    RRC   A                ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ACCï¿½Äµï¿½Î»
     MOV   B, A
     DJNZ  R6, RB_LOOP
     MOV   A, B
@@ -280,17 +280,17 @@ INTT1:
 	 PUSH 05H
 	 PUSH 06H
 	 PUSH 07H
-	 PUSH 0F0H       ; ±£´æB
-	 MOV TH1, #0D8H       ; ¸ßÎ»
-     MOV TL1, #0F0H       ; µÍÎ»
+	 PUSH 0F0H       ; ï¿½ï¿½ï¿½ï¿½B
+	 MOV TH1, #0D8H       ; ï¿½ï¿½Î»
+     MOV TL1, #0F0H       ; ï¿½ï¿½Î»
 	 
-	 MOV A,TIME_ADJUST_MODE   //¶ÁÈ¡Ä£Ê½
+	 MOV A,TIME_ADJUST_MODE   //ï¿½ï¿½È¡Ä£Ê½
      CJNE A,#1,ZD22;   
 	 
-	 MOV A,TIME_L  //Õý¼ÆÊ±
+	 MOV A,TIME_L  //ï¿½ï¿½ï¿½ï¿½Ê±
 	 ADD A,#1
 	 MOV B,A
-	 DA A ;Ê®½øÖÆµ÷Õû
+	 DA A ;Ê®ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½
 	 MOV TIME_L,A
 	 MOV A,B
 	 
@@ -302,16 +302,16 @@ INTT1:
 	 MOV TIME_H,A
 	 SJMP ZD11
 	 
-	 ZD22:    //µ¹¼ÆÊ±
+	 ZD22:    //ï¿½ï¿½ï¿½ï¿½Ê±
 	 MOV A,FALL_TIME_L
-	 ADD A, #99H       ; Ïàµ±ÓÚ¼õ1
-	 DA A ;Ê®½øÖÆµ÷Õû
+	 ADD A, #99H       ; ï¿½àµ±ï¿½Ú¼ï¿½1
+	 DA A ;Ê®ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½
 	 MOV FALL_TIME_L,A
 	 JNC ZD33 ;
 	 SJMP ZD44
 	 ZD33:
 	 MOV A,FALL_TIME_H
-	 ADD A, #99H       ; Ïàµ±ÓÚ¼õ1
+	 ADD A, #99H       ; ï¿½àµ±ï¿½Ú¼ï¿½1
 	 DA A
 	 MOV FALL_TIME_H,A
 	 SJMP ZD44
@@ -321,11 +321,11 @@ INTT1:
 	 MOV R6,FALL_TIME_H
 	 CJNE R6,#00H,ZD11
 	 CJNE R5,#00H,ZD11
-	 CLR TR1           //¹Ø±Õ¶¨Ê±Æ÷£¬·äÃùÆ÷Ïì
+	 CLR TR1           //ï¿½Ø±Õ¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 CLR BUZZER
 	 SJMP ZD11
      ZD11:
-	 POP 0F0H       ; ³öB
+	 POP 0F0H       ; ï¿½ï¿½B
 	 POP 07H
 	 POP 06H
 	 POP 05H
@@ -337,8 +337,8 @@ INTT1:
 KEY_SCAN:
      DEC TIME_DELAY_FLAG
      MOV A,TIME_DELAY_FLAG
-	 JNZ KEY1    //TIME_DELAY_FLAG²»µÈÓÚ0Ìø×ª
-	 WUYU:       //ÉÁË¸
+	 JNZ KEY1    //TIME_DELAY_FLAGï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½×ª
+	 WUYU:       //ï¿½ï¿½Ë¸
 	 MOV TIME_DELAY_FLAG,#03H
 ;	 JNB TIME_ADJUST_FLAG,KEY1
      MOV A,TIME_ADJUST_FLAG
@@ -352,18 +352,18 @@ KEY_SCAN:
 	 
 	 
      KEY1:
-     MOV   C, TIME_ADJUST      ; ¶ÁÈ¡°´¼ü×´Ì¬
-     JC    KEY2       ; Èç¹ûC=1£¨°´¼üÎ´°´ÏÂ£©£¬Ìø×ª
+     MOV   C, TIME_ADJUST      ; ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     JC    KEY2       ; ï¿½ï¿½ï¿½C=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½×ª
      MOV R0,#20
 	 DELAY_S0:
 	 CALL DELAY_1MS
      DJNZ R0,DELAY_S0
-     MOV   C, TIME_ADJUST      ; ÔÙ´Î¼ì²â
-     JC    KEY2       ; Èç¹ûÊÇ¶¶¶¯£¬Ìø×ª
+     MOV   C, TIME_ADJUST      ; ï¿½Ù´Î¼ï¿½ï¿½
+     JC    KEY2       ; ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 KEY_WAIT_RELEASE0:
 	 
      MOV   C, TIME_ADJUST
-     JNC   KEY_WAIT_RELEASE0    ; Èç¹û»¹ÊÇµÍµçÆ½£¬¼ÌÐøµÈ´ý
+     JNC   KEY_WAIT_RELEASE0    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÍµï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½
 	 
      MOV A,TIME_ADJUST_MODE
      CJNE A,#0,KEY1_1;
@@ -379,13 +379,13 @@ KEY_SCAN:
 	 
 	 KEY1_1:
      CJNE A,#1,KEY1_2;
-	 MOV TIME_L,#0         //Õý¼ÆÊ±ÇåÁã
+	 MOV TIME_L,#0         //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 	 MOV TIME_H,#0
 ;	 MOV UPRIGHT_TIME_NUMBER,#0
 	 SJMP KEY2
 ;	 INC YEARL
      KEY1_2:
-	 MOV DPTR,#SITE_DATA  //µ¹¼ÆÊ±Ñ¡ÔñÎ»ÖÃ½øÐÐµ÷Õû
+	 MOV DPTR,#SITE_DATA  //ï¿½ï¿½ï¿½ï¿½Ê±Ñ¡ï¿½ï¿½Î»ï¿½Ã½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
 	 INC DPTR
 ;	 CPL TIME_ADJUST_FLAG2
      INC TIME_ADJUST_FLAG
@@ -396,28 +396,28 @@ KEY_SCAN:
 	 SJMP KEY2
 	 
 	 KEY2:
-     MOV   C, ADD_ONE      ; ¶ÁÈ¡°´¼ü×´Ì¬
-     JC    KEY3       ; Èç¹ûC=1£¨°´¼üÎ´°´ÏÂ£©£¬Ìø×ª
+     MOV   C, ADD_ONE      ; ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     JC    KEY3       ; ï¿½ï¿½ï¿½C=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½×ª
      MOV R0,#20       
 	 DELAY_S1:
 	 CALL DELAY_1MS
      DJNZ R0,DELAY_S1
-     MOV   C, ADD_ONE      ; ÔÙ´Î¼ì²â
-     JC    KEY3       ; Èç¹ûÊÇ¶¶¶¯£¬Ìø×ª
+     MOV   C, ADD_ONE      ; ï¿½Ù´Î¼ï¿½ï¿½
+     JC    KEY3       ; ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 KEY_WAIT_RELEASE1:
      MOV   C, ADD_ONE
-     JNC   KEY_WAIT_RELEASE1    ; Èç¹û»¹ÊÇµÍµçÆ½£¬¼ÌÐøµÈ´ý
+     JNC   KEY_WAIT_RELEASE1    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÍµï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½
 ;	 JNB TIME_ADJUST_FLAG,KEY_END
      MOV A,TIME_ADJUST_FLAG  //
      CJNE A,#1,KEY2_2  
 	 MOV A,TIME_ADJUST_MODE
 	 CJNE A,#0,KEY2_1
-	 CALL INC_ONE      //Ä£Ê½1¼Ó1
+	 CALL INC_ONE      //Ä£Ê½1ï¿½ï¿½1
 	 SJMP KEY3
-	 KEY2_1:           //Ä£Ê½3¼Ó1
+	 KEY2_1:           //Ä£Ê½3ï¿½ï¿½1
 	 CALL FALL_INC_ONE
 	 SJMP KEY3
-	 KEY2_2:   //Ä£Ê½2µÄ¶à¶Î¼ÆÊ±¼ÇÂ¼
+	 KEY2_2:   //Ä£Ê½2ï¿½Ä¶ï¿½Î¼ï¿½Ê±ï¿½ï¿½Â¼
 	 MOV B,#3
 	 MOV A,UPRIGHT_TIME_NUMBER
 	 DIV AB
@@ -435,49 +435,49 @@ KEY_SCAN:
 	 INC UPRIGHT_TIME_NUMBER
 	 	 	 	 
 	 KEY3:
-	 MOV   C, DEC_ONE      ; ¶ÁÈ¡°´¼ü×´Ì¬
-     JC    KEY4       ; Èç¹ûC=1£¨°´¼üÎ´°´ÏÂ£©£¬Ìø×ª
+	 MOV   C, DEC_ONE      ; ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     JC    KEY4       ; ï¿½ï¿½ï¿½C=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½×ª
      MOV R0,#20
 	 DELAY_S2:
 	 CALL DELAY_1MS
-     MOV   C, DEC_ONE      ; ÔÙ´Î¼ì²â
+     MOV   C, DEC_ONE      ; ï¿½Ù´Î¼ï¿½ï¿½
      DJNZ R0,DELAY_S2
-     JC    KEY4       ; Èç¹ûÊÇ¶¶¶¯£¬Ìø×ª
+     JC    KEY4       ; ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 KEY_WAIT_RELEASE2:
      MOV   C, DEC_ONE
-     JNC   KEY_WAIT_RELEASE2    ; Èç¹û»¹ÊÇµÍµçÆ½£¬¼ÌÐøµÈ´ý
-	 JNB BUZZER,KEY3_1 ;BUZZER=0Ìø×ª
-	 CPL TR1    //ÔÝÍ£
+     JNC   KEY_WAIT_RELEASE2    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÍµï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½
+	 JNB BUZZER,KEY3_1 ;BUZZER=0ï¿½ï¿½×ª
+	 CPL TR1    //ï¿½ï¿½Í£
 	 SJMP KEY4
-	 KEY3_1:    //µ¹¼ÆÊ±µ½Áãºó»Ö¸´
+	 KEY3_1:    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½
 	 SETB BUZZER
 	 MOV FALL_TIME_L,R3
 	 MOV FALL_TIME_H,R2
 	 SJMP KEY4
 	 
 	 KEY4:
-	 MOV   C, ADD_SITE      ; ¶ÁÈ¡°´¼ü×´Ì¬
-     JC    KEY5       ; Èç¹ûC=1£¨°´¼üÎ´°´ÏÂ£©£¬Ìø×ª
+	 MOV   C, ADD_SITE      ; ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     JC    KEY5       ; ï¿½ï¿½ï¿½C=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½×ª
      MOV R0,#20
 	 DELAY_S3:
 	 CALL DELAY_1MS
-     MOV   C, ADD_SITE      ; ÔÙ´Î¼ì²â
+     MOV   C, ADD_SITE      ; ï¿½Ù´Î¼ï¿½ï¿½
      DJNZ R0,DELAY_S3
-     JC    KEY5       ; Èç¹ûÊÇ¶¶¶¯£¬Ìø×ª
+     JC    KEY5       ; ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 KEY_WAIT_RELEASE3:
      MOV   C, ADD_SITE
-     JNC   KEY_WAIT_RELEASE3    ; Èç¹û»¹ÊÇµÍµçÆ½£¬¼ÌÐøµÈ´ý
+     JNC   KEY_WAIT_RELEASE3    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÍµï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½
 	 
      MOV A,TIME_ADJUST_MODE
      CJNE A,#0,KEY4_1
 	 
-	 CLR A    //Ä£Ê½1µÄÉÁË¸Î»ÖÃµ÷Õû
+	 CLR A    //Ä£Ê½1ï¿½ï¿½ï¿½ï¿½Ë¸Î»ï¿½Ãµï¿½ï¿½ï¿½
 	 MOVC A,@A+DPTR
 	 CJNE A, #0X80,RETURN_SITE
 	 MOV DPTR,#SITE_DATA
 	 SJMP KEY_END
 	 
-	 KEY4_1:  //Ä£Ê½3µÄÉÁË¸Î»ÖÃµ÷Õû
+	 KEY4_1:  //Ä£Ê½3ï¿½ï¿½ï¿½ï¿½Ë¸Î»ï¿½Ãµï¿½ï¿½ï¿½
 	 CJNE A,#2,KEY4_2
 	 CLR A
 	 MOVC A,@A+DPTR
@@ -486,7 +486,7 @@ KEY_SCAN:
 	 INC DPTR
 	 SJMP KEY_END
 	 
-	 KEY4_2:  //Ä£Ê½2µÄ¼ÇÂ¼µÄÊý¾ÝÇÐ»»
+	 KEY4_2:  //Ä£Ê½2ï¿½Ä¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½
 	 MOV LCD_DATA,#0X01
 	 CALL LCD_WRITE_CMD 
 	 INC UPRIGHT_TIME_FLAG
@@ -497,19 +497,19 @@ KEY_SCAN:
 
 	 
 	 KEY5:
-	 MOV   C, SITE_MODE      ; ¶ÁÈ¡°´¼ü×´Ì¬
-     JC    KEY_END       ; Èç¹ûC=1£¨°´¼üÎ´°´ÏÂ£©£¬Ìø×ª
+	 MOV   C, SITE_MODE      ; ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     JC    KEY_END       ; ï¿½ï¿½ï¿½C=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½×ª
      MOV R0,#20
 	 DELAY_S4:
 	 CALL DELAY_1MS
-     MOV   C, SITE_MODE      ; ÔÙ´Î¼ì²â
+     MOV   C, SITE_MODE      ; ï¿½Ù´Î¼ï¿½ï¿½
      DJNZ R0,DELAY_S4
-     JC    KEY_END       ; Èç¹ûÊÇ¶¶¶¯£¬Ìø×ª
+     JC    KEY_END       ; ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 KEY_WAIT_RELEASE4:
      MOV   C, SITE_MODE
-     JNC   KEY_WAIT_RELEASE4    ; Èç¹û»¹ÊÇµÍµçÆ½£¬¼ÌÐøµÈ´ý
+     JNC   KEY_WAIT_RELEASE4    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÍµï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½
 	 
-	 MOV LCD_DATA,#0X01       //Ä£Ê½ÇÐ»»
+	 MOV LCD_DATA,#0X01       //Ä£Ê½ï¿½Ð»ï¿½
 	 CALL LCD_WRITE_CMD
 	 MOV TIME_ADJUST_FLAG,#0
 	 SETB TR0
@@ -518,8 +518,8 @@ KEY_SCAN:
 	 MOV FALL_TIME_L,R3
 	 MOV FALL_TIME_H,R2
 	 CLR TR1
-	 MOV TH1, #0D8H       ; ¸ßÎ»
-     MOV TL1, #0F0H       ; µÍÎ»
+	 MOV TH1, #0D8H       ; ï¿½ï¿½Î»
+     MOV TL1, #0F0H       ; ï¿½ï¿½Î»
 	 SETB BUZZER
      INC TIME_ADJUST_MODE
      MOV B,#MODE_NUMBER
@@ -549,14 +549,14 @@ FALL_INC_ONE:
 	 CJNE A, #0XC6,FALL_INC_ONE11
 	 MOV A,FALL_TIME_L
 	 ADD A,#1
-	 DA A ;ºÁÃëµ÷Õû
+	 DA A ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV FALL_TIME_L,A
 	 
 	 FALL_INC_ONE11:
 	 CJNE A, #0XC3,FALL_INC_ONE_END
 	 MOV A,FALL_TIME_H
 	 ADD A,#1
-	 DA A ;Ãëµ÷Õû
+	 DA A ;ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV FALL_TIME_H,A
 	 FALL_INC_ONE_END:
 	 MOV R3,FALL_TIME_L
@@ -568,9 +568,9 @@ INC_ONE:
 	 CJNE A, #0XC9,INC_ONE000
 	 MOV A,SEC
 	 ADD A,#1
-	 DA A ;Ãëµ÷Õû
+	 DA A ;ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV SEC,A
-	 CJNE A,#60H,INC_ONE888 ;ÃëÒç³ö
+	 CJNE A,#60H,INC_ONE888 ;ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV SEC,#0
      INC_ONE000:
      CJNE A, #0XC6,INC_ONE001
@@ -579,7 +579,7 @@ INC_ONE:
 	 DA A ;
 	 MOV MINUTE,A
 	 INC_ONE888:
-	 CJNE A,#60H,INC_ONE_END ;·ÖÒç³ö
+	 CJNE A,#60H,INC_ONE_END ;ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV MINUTE,#0
 	 SJMP INC_ONE_END
 	 INC_ONE001:
@@ -588,7 +588,7 @@ INC_ONE:
 	 ADD A,#1
 	 DA A ;
 	 MOV HOUR,A
-	 CJNE A,#24H,INC_ONE_END ;Ê±Òç³ö
+	 CJNE A,#24H,INC_ONE_END ;Ê±ï¿½ï¿½ï¿½
 	 MOV HOUR,#0
 	 SJMP INC_ONE_END
 	 INC_ONE002:
@@ -598,35 +598,35 @@ INC_ONE:
 	 DA A ;
 	 MOV DAY,A
 	 
-	 MOV A,MONTH    ;²éÑ¯±¾ÔÂ×î´óÈÕÆÚ
+	 MOV A,MONTH    ;ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 INC A
 	 MOVC A,@A+PC
 	 SJMP INC_ONE010
-	 DB 31H,28H,31H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:01H,02H,03H
-	 DB 30H,31H,30H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:04H,05H,06H
-	 DB 31H,31H,30H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:07H,08H,09H
-	 DB 00H,00H,00H       ;¶ÔÓ¦ÎÞÐ§ÔÂ·Ý±àÂë:0AH,0BH,0CH\n
-	 DB 00H,00H,00H       ;¶ÔÓ¦ÎÞÐ§ÔÂ·Ý±àÂë:0DH,0EH,0FH\n
-	 DB 31H,30H,31H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:10H,11H,12H
+	 DB 31H,28H,31H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:01H,02H,03H
+	 DB 30H,31H,30H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:04H,05H,06H
+	 DB 31H,31H,30H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:07H,08H,09H
+	 DB 00H,00H,00H       ;ï¿½ï¿½Ó¦ï¿½ï¿½Ð§ï¿½Â·Ý±ï¿½ï¿½ï¿½:0AH,0BH,0CH\n
+	 DB 00H,00H,00H       ;ï¿½ï¿½Ó¦ï¿½ï¿½Ð§ï¿½Â·Ý±ï¿½ï¿½ï¿½:0DH,0EH,0FH\n
+	 DB 31H,30H,31H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:10H,11H,12H
 	 
 	 INC_ONE010:
 	 CLR   C
 	 SUBB  A,DAY
-	 JNC   INC_ONE_END                ;±¾ÔÂÎ´Âú
+	 JNC   INC_ONE_END                ;ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½
 	 MOV   A,MONTH
-	 CJNE  A,#2,INC_ONE012       ;ÊÇ¶þÔÂ
+	 CJNE  A,#2,INC_ONE012       ;ï¿½Ç¶ï¿½ï¿½ï¿½
 	 MOV   A,YEARL
-	 ANL   A,#13H           ;±£ÁôÄê·ÝÖÐ·Ç4µÄÕûÊý²¿·Ö
+	 ANL   A,#13H           ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 JNB   ACC.4,INC_ONE011
 	 ADD   A,#2
 	 INC_ONE011:
-	 ANL   A,#3             ;ÄÜ·ñ±»4Õû³ý
-	 JNZ   INC_ONE012             ;·ÇÈòÄê
+	 ANL   A,#3             ;ï¿½Ü·ï¿½4ï¿½ï¿½ï¿½ï¿½
+	 JNZ   INC_ONE012             ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV   A,DAY
 	 XRL   A,#29H
-	 JZ    INC_ONE_END              ;ÈòÄê¶þÔÂ¿ÉÒÔÓÐ29ÈÕ
+	 JZ    INC_ONE_END              ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½29ï¿½ï¿½
 	 INC_ONE012:
-	 MOV   DAY,#1          ;µ÷Õûµ½ÏÂ¸öÔÂµÄ1ÈÕ	 
+	 MOV   DAY,#1          ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Âµï¿½1ï¿½ï¿½	 
 	 SJMP INC_ONE_END
 	 
 	 INC_ONE003:
@@ -635,7 +635,7 @@ INC_ONE:
 	 ADD A,#1
 	 DA A ;
 	 MOV MONTH,A
-	 CJNE A,#13H,INC_ONE_END ;ÃëÒç³ö
+	 CJNE A,#13H,INC_ONE_END ;ï¿½ï¿½ï¿½ï¿½ï¿½
 	 MOV MONTH,#1
 	 SJMP INC_ONE_END
 	 
@@ -657,16 +657,16 @@ INC_ONE:
 ;	 PUSH 06H
 ;	 PUSH 07H
 ;	 MOV TL0,#0C0H ;
-;     MOV TH0,#63H ;ÖØÖÃ
+;     MOV TH0,#63H ;ï¿½ï¿½ï¿½ï¿½
 ;	 
 ;	 DJNZ R4,CLKE111
 ;	 MOV R4,#19H
 ;	 MOV A,SEC
 ;	 ADD A,#1
-;	 DA A ;Ê®½øÖÆµ÷Õû
+;	 DA A ;Ê®ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½
 ;	 MOV SEC,A
 ;	 
-;	 CJNE A,#60H,CLKE111 ;ÃëÒç³ö
+;	 CJNE A,#60H,CLKE111 ;ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 MOV SEC,#0
 ;	 MOV A,MINUTE
 ;	 ADD A,#1
@@ -674,55 +674,55 @@ INC_ONE:
 ;	 MOV MINUTE,A
 ;	 
 ;	 CLK0:
-;	 CJNE A,#60H,CLKE111  ;·ÖÒç³ö
+;	 CJNE A,#60H,CLKE111  ;ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 MOV MINUTE,#0
 ;	 MOV A,HOUR
 ;	 ADD A,#1
 ;	 DA A
 ;	 MOV HOUR,A
 ;	 
-;	 CJNE A,#24H,CLKE111  ;Ê±Òç³ö
+;	 CJNE A,#24H,CLKE111  ;Ê±ï¿½ï¿½ï¿½
 ;	 MOV HOUR,#0
 ;	 MOV A,DAY
 ;	 ADD A,#1
 ;	 DA A
 ;	 MOV DAY,A
-;	 MOV A,MONTH    ;²éÑ¯±¾ÔÂ×î´óÈÕÆÚ
+;	 MOV A,MONTH    ;ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 INC A
 ;	 MOVC A,@A+PC
 ;	 SJMP CLK1
-;	 DB 31H,28H,31H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:01H,02H,03H
-;	 DB 30H,31H,30H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:04H,05H,06H
-;	 DB 31H,31H,30H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:07H,08H,09H
-;	 DB 00H,00H,00H       ;¶ÔÓ¦ÎÞÐ§ÔÂ·Ý±àÂë:0AH,0BH,0CH\n
-;	 DB 00H,00H,00H       ;¶ÔÓ¦ÎÞÐ§ÔÂ·Ý±àÂë:0DH,0EH,0FH\n
-;	 DB 31H,30H,31H       ;¶ÔÓ¦ÔÂ·Ý±àÂë:10H,11H,12H
+;	 DB 31H,28H,31H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:01H,02H,03H
+;	 DB 30H,31H,30H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:04H,05H,06H
+;	 DB 31H,31H,30H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:07H,08H,09H
+;	 DB 00H,00H,00H       ;ï¿½ï¿½Ó¦ï¿½ï¿½Ð§ï¿½Â·Ý±ï¿½ï¿½ï¿½:0AH,0BH,0CH\n
+;	 DB 00H,00H,00H       ;ï¿½ï¿½Ó¦ï¿½ï¿½Ð§ï¿½Â·Ý±ï¿½ï¿½ï¿½:0DH,0EH,0FH\n
+;	 DB 31H,30H,31H       ;ï¿½ï¿½Ó¦ï¿½Â·Ý±ï¿½ï¿½ï¿½:10H,11H,12H
 ;	 
 ;	 CLK1:
 ;	 CLR   C
 ;	 SUBB  A,DAY
-;	 JNC   CLKE111                ;±¾ÔÂÎ´Âú
+;	 JNC   CLKE111                ;ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½
 ;	 MOV   A,MONTH
-;	 CJNE  A,#2,CLK3       ;ÊÇ¶þÔÂ
+;	 CJNE  A,#2,CLK3       ;ï¿½Ç¶ï¿½ï¿½ï¿½
 ;	 MOV   A,YEARL
-;	 ANL   A,#13H           ;±£ÁôÄê·ÝÖÐ·Ç4µÄÕûÊý²¿·Ö
+;	 ANL   A,#13H           ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 JNB   ACC.4,CLK2
 ;	 ADD   A,#2
 ;	 CLK2:
-;	 ANL   A,#3             ;ÄÜ·ñ±»4Õû³ý
-;	 JNZ   CLK3             ;·ÇÈòÄê
+;	 ANL   A,#3             ;ï¿½Ü·ï¿½4ï¿½ï¿½ï¿½ï¿½
+;	 JNZ   CLK3             ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 MOV   A,DAY
 ;	 XRL   A,#29H
-;	 JZ    CLKE111              ;ÈòÄê¶þÔÂ¿ÉÒÔÓÐ29ÈÕ
+;	 JZ    CLKE111              ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½29ï¿½ï¿½
 ;	 CLK3:
-;	 MOV   DAY,#1          ;µ÷Õûµ½ÏÂ¸öÔÂµÄ1ÈÕ
+;	 MOV   DAY,#1          ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Âµï¿½1ï¿½ï¿½
 ;	 MOV   A,MONTH
 ;	 ADD   A,#1
 ;	 DA    A
 ;	 MOV   MONTH,A
 ;	 CJNE  A,#13H,CLKE111
-;	 MOV   MONTH,#1        ;µ÷Õûµ½ÏÂÒ»ÄêµÄÒ»ÔÂ·Ý
-;	 MOV   A,YEARL             ;µ÷ÕûÄê·Ý
+;	 MOV   MONTH,#1        ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ò»ï¿½Â·ï¿½
+;	 MOV   A,YEARL             ;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ;	 ADD   A,#1
 ;	 DA    A
 ;	 MOV   YEARL,A
@@ -738,8 +738,8 @@ INC_ONE:
 	 
 SHOW:
      MOV A,TIME_ADJUST_MODE
-     CJNE A,#0,SHOW2    ;0Ìø×ª
-     MOV R0,#YEARH ;´«µØÖ·        Ä£Ê½1µÄÏÔÊ¾
+     CJNE A,#0,SHOW2    ;0ï¿½ï¿½×ª
+     MOV R0,#YEARH ;ï¿½ï¿½ï¿½ï¿½Ö·        Ä£Ê½1ï¿½ï¿½ï¿½ï¿½Ê¾
 	 INC R0
 	 MOV LCD_DATA,#0X80
 	 CALL LCD_WRITE_CMD
@@ -759,13 +759,13 @@ SHOW:
 	 MOV A,TIME_WEEK
 	 MOV B,#3
 	 MUL AB
-	 ADD A, DPL            ; ¼ÓÉÏÆ«ÒÆÁ¿
+	 ADD A, DPL            ; ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
      MOV DPL, A
      MOV A, B
      ADDC A, DPH
      MOV DPH, A
 	 CLR A
-     MOVC A, @A+DPTR      ; ¶ÁÈ¡µÚÒ»¸ö×Ö·û
+     MOVC A, @A+DPTR      ; ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½
 	 MOV LCD_DATA,#0X8C
 	 CALL LCD_WRITE_CMD
 	 MOV LCD_DATA,A
@@ -800,7 +800,7 @@ SHOW:
      CJNE A,#1,SHOW3
      MOV A,UPRIGHT_TIME_FLAG
      CJNE A,#0,SHOW4	 
-	 MOV R0,#TIME_H ;´«µØÖ·   Ä£Ê½2µÄÏÔÊ¾
+	 MOV R0,#TIME_H ;ï¿½ï¿½ï¿½ï¿½Ö·   Ä£Ê½2ï¿½ï¿½ï¿½ï¿½Ê¾
 	 INC R0
 	 MOV LCD_DATA,#0XC2
 	 CALL LCD_WRITE_CMD
@@ -810,11 +810,11 @@ SHOW:
 	 CALL DISPLAY
 	 SJMP SHOW_END
 	 
-	 SHOW4:      // Ä£Ê½2µÄ¼ÇÂ¼Êý¾ÝÏÔÊ¾
+	 SHOW4:      // Ä£Ê½2ï¿½Ä¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 	 DEC A
      ADD A,ACC
 	 ADD A,#TIME_H_1
-	 MOV R0,A;´«µØÖ·
+	 MOV R0,A;ï¿½ï¿½ï¿½ï¿½Ö·
 	 INC R0
 	 MOV LCD_DATA,#0XC2
 	 CALL LCD_WRITE_CMD
@@ -833,8 +833,8 @@ SHOW:
 	 
 	 SJMP SHOW_END
 	 
-	 SHOW3:      //Ä£Ê½3µÄÏÔÊ¾
-	 MOV R0,#FALL_TIME_H ;´«µØÖ·
+	 SHOW3:      //Ä£Ê½3ï¿½ï¿½ï¿½ï¿½Ê¾
+	 MOV R0,#FALL_TIME_H ;ï¿½ï¿½ï¿½ï¿½Ö·
 	 INC R0
 	 MOV LCD_DATA,#0XC2
 	 CALL LCD_WRITE_CMD
@@ -845,7 +845,7 @@ SHOW:
 	 
 	 SHOW_END:
 	 RET
-     DISPLAY: ;¶ÔÊý×Ö½øÐÐÏÔÊ¾
+     DISPLAY: ;ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 	 DEC R0
      MOV A,@R0
 	 MOV B,#10H
@@ -869,7 +869,7 @@ LCD_CHECK_BUSY:
 	JC READ_BUSY
 	RET
 
-LCD_WRITE_CMD:   //LCDÖ¸Áî
+LCD_WRITE_CMD:   //LCDÖ¸ï¿½ï¿½
     CALL LCD_CHECK_BUSY
 	CLR LCD_RS
 	CLR LCD_RW
@@ -895,7 +895,7 @@ LCD_INIT:
 	CALL LCD_WRITE_CMD
 	RET
 
-LCD_WRITE_DATA:   //LCD´«ÊäÊý¾Ý
+LCD_WRITE_DATA:   //LCDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     CALL LCD_CHECK_BUSY
 	SETB LCD_RS
 	CLR LCD_RW
@@ -908,7 +908,7 @@ LCD_WRITE_DATA:   //LCD´«ÊäÊý¾Ý
 	CLR LCD_E
 	RET
 
-WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
+WEEK:       ;ï¿½ï¿½ï¿½Õ¹ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     MOV A,YEARL
     MOV B,#16
     DIV AB
@@ -916,7 +916,7 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
     MOV B,#10
     MUL AB
     ADD A,TEMP_BYTE1
-    MOV TEMP_BYTE1,A ;TEMP_BYTE1=Äê
+    MOV TEMP_BYTE1,A ;TEMP_BYTE1=ï¿½ï¿½
 	MOV A,YEARH
     MOV B,#16
     DIV AB
@@ -924,7 +924,7 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
     MOV B,#10
     MUL AB
     ADD A,TEMP_BYTE2
-    MOV TEMP_BYTE2,A ;TEMP_BYTE2=ÊÀ¼Í
+    MOV TEMP_BYTE2,A ;TEMP_BYTE2=ï¿½ï¿½ï¿½ï¿½
 	
 	MOV A,MONTH
     MOV B,#16
@@ -933,7 +933,7 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
     MOV B,#10
     MUL AB
     ADD A,TEMP_BYTE3
-    MOV TEMP_BYTE3,A ;TEMP_BYTE3=ÔÂ
+    MOV TEMP_BYTE3,A ;TEMP_BYTE3=ï¿½ï¿½
 	
     MOV A,DAY
     MOV B,#16
@@ -942,50 +942,50 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
     MOV B,#10
     MUL AB
     ADD A,TEMP_BYTE4
-    MOV TEMP_BYTE4,A ;TEMP_BYTE4=ÈÕ
+    MOV TEMP_BYTE4,A ;TEMP_BYTE4=ï¿½ï¿½
     
-	;;ÐÞÕý
-	MOV A, TEMP_BYTE3      ; ÔÂ·Ý
+	;;ï¿½ï¿½ï¿½ï¿½
+	MOV A, TEMP_BYTE3      ; ï¿½Â·ï¿½
     CJNE A, #1, CHECK_FEB
-    ; 1ÔÂ´¦Àí
+    ; 1ï¿½Â´ï¿½ï¿½ï¿½
     MOV TEMP_BYTE3, #13   ; month = 13
-    ; Äê·Ý¼õ1
+    ; ï¿½ï¿½Ý¼ï¿½1
     MOV A, TEMP_BYTE1
-    JZ  YEARL_ZERO1       ; Èç¹ûÄêºóÁ½Î»=0
+    JZ  YEARL_ZERO1       ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»=0
     DEC TEMP_BYTE1
     SJMP GETW06
 	YEARL_ZERO1:
-    MOV TEMP_BYTE1, #99   ; ÄêºóÁ½Î»=99
-    DEC TEMP_BYTE2        ; ÊÀ¼Í¼õ1
+    MOV TEMP_BYTE1, #99   ; ï¿½ï¿½ï¿½ï¿½ï¿½Î»=99
+    DEC TEMP_BYTE2        ; ï¿½ï¿½ï¿½Í¼ï¿½1
     SJMP GETW06
     
     CHECK_FEB:
-    CJNE A, #2, GETW06    ; Èç¹û²»ÊÇ2ÔÂ£¬Ö±½ÓÌø×ª
-    ; 2ÔÂ´¦Àí
+    CJNE A, #2, GETW06    ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½Â£ï¿½Ö±ï¿½ï¿½ï¿½ï¿½×ª
+    ; 2ï¿½Â´ï¿½ï¿½ï¿½
     MOV TEMP_BYTE3, #14   ; month = 14
-    ; Äê·Ý¼õ1
+    ; ï¿½ï¿½Ý¼ï¿½1
     MOV A, TEMP_BYTE1
-    JZ  YEARL_ZERO2       ; Èç¹ûÄêºóÁ½Î»=0
+    JZ  YEARL_ZERO2       ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»=0
     DEC TEMP_BYTE1
     SJMP GETW06
     
     YEARL_ZERO2:
-    MOV TEMP_BYTE1,#99   ; ÄêºóÁ½Î»=99
-    DEC TEMP_BYTE2        ; ÊÀ¼Í¼õ1
-    ; SJMP GETW06 ¼ÌÐøÖ´ÐÐ
+    MOV TEMP_BYTE1,#99   ; ï¿½ï¿½ï¿½ï¿½ï¿½Î»=99
+    DEC TEMP_BYTE2        ; ï¿½ï¿½ï¿½Í¼ï¿½1
+    ; SJMP GETW06 ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
 
-    ; ============ µÚÈý²¿·Ö£º¼ÆËã²ÌÀÕ¹«Ê½ ============
+    ; ============ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ê½ ============
     GETW06:
-    ; 1. ¼ÆËã ?(13m-1)/5?
+    ; 1. ï¿½ï¿½ï¿½ï¿½ ?(13m-1)/5?
     MOV A, TEMP_BYTE3    ; m
-    INC A                ; m+1   ¡û ¹Ø¼üÐÞÕý
+    INC A                ; m+1   ï¿½ï¿½ ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
     MOV B, #13
     MUL AB               ; A = 13(m+1)
     MOV B, #5
     DIV AB               ; A = ?13(m+1)/5?
     MOV TIME_WEEK_1, A            ; R1 = ?13(m+1)/5?
     
-    ; 2. ¼ÆËã y + ?y/4?
+    ; 2. ï¿½ï¿½ï¿½ï¿½ y + ?y/4?
     MOV A, TEMP_BYTE1    ; y
     MOV TIME_WEEK_2, A            ; R2 = y
     MOV B, #4
@@ -993,46 +993,46 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
     ADD A, TIME_WEEK_2            ; A = y + ?y/4?
     MOV TIME_WEEK_3, A            ; R3 = y + ?y/4?
     
-    ; 3. ¼ÆËã ?c/4? - 2c
+    ; 3. ï¿½ï¿½ï¿½ï¿½ ?c/4? - 2c
     MOV A, TEMP_BYTE2    ; c
     MOV B, #4
     DIV AB               ; A = ?c/4?
     MOV TIME_WEEK_4, A            ; R4 = ?c/4?
     
     MOV A, TEMP_BYTE2    ; c
-    ADD A, ACC           ; A = 2c (A¡Á2)
-    CPL A                ; È¡·´
-    INC A                ; ¼Ó1 = -2c
+    ADD A, ACC           ; A = 2c (Aï¿½ï¿½2)
+    CPL A                ; È¡ï¿½ï¿½
+    INC A                ; ï¿½ï¿½1 = -2c
     ADD A, TIME_WEEK_4            ; A = ?c/4? - 2c
     MOV TIME_WEEK_5, A            ; R5 = ?c/4? - 2c
     
-    ; 4. ×ÜºÍ¼ÆËã
+    ; 4. ï¿½ÜºÍ¼ï¿½ï¿½ï¿½
     MOV A, TEMP_BYTE4    ; d
     ADD A, TIME_WEEK_1            ; + ?13(m+1)/5?
     ADD A, TIME_WEEK_3            ; + (y + ?y/4?)
     ADD A, TIME_WEEK_5            ; + (?c/4? - 2c)
     
-    ; 5. ´¦Àí¸ºÊý£¨²ÌÀÕ¹«Ê½½á¹û¿ÉÄÜÎª¸º£©
-    JNB ACC.7, POSITIVE  ; Èç¹û×î¸ßÎ»Îª0£¬ÊÇÕýÊý
+    ; 5. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+    JNB ACC.7, POSITIVE  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Îª0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     NEGATIVE:
-    ADD A, #7            ; ¸ºÊý¼Ó7
-    JB ACC.7, NEGATIVE   ; Èç¹û»¹ÊÇ¸ºÊý£¬¼ÌÐø¼Ó
+    ADD A, #7            ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7
+    JB ACC.7, NEGATIVE   ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     POSITIVE:
     
     ; 6. È¡Ä£7
     MOV B, #7
     DIV AB               ; B = w mod 7
     
-    ; 7. ½á¹ûµ÷Õû£¨²ÌÀÕ¹«Ê½£º0=ÖÜÁù£¬1=ÖÜÈÕ...6=ÖÜÎå£©
-    ; ÎÒÃÇÒªµ÷ÕûÎª£º0=ÖÜÈÕ£¬1=ÖÜÒ»...6=ÖÜÁù
+    ; 7. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ê½ï¿½ï¿½0=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1=ï¿½ï¿½ï¿½ï¿½...6=ï¿½ï¿½ï¿½å£©
+    ; ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½0=ï¿½ï¿½ï¿½Õ£ï¿½1=ï¿½ï¿½Ò»...6=ï¿½ï¿½ï¿½ï¿½
     MOV A, B
     CJNE A, #0, NOT_SAT
-    ; w=0£¨ÖÜÁù£©¡ú µ÷ÕûÎª6
+    ; w=0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îª6
     MOV A, #6
     SJMP STORE_RESULT
     
     NOT_SAT:
-    DEC A                ; w-1£º1¡ú0£¨ÖÜÈÕ£©£¬2¡ú1£¨ÖÜÒ»£©...
+    DEC A                ; w-1ï¿½ï¿½1ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½2ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½...
     
     STORE_RESULT:
     MOV TIME_WEEK, A
@@ -1043,16 +1043,16 @@ WEEK:       ;²ÌÀÕ¹«Ê½¼ÆËã³öÀ´ÐÇÆÚ
 ;    DB 0,3,3,6,1,4,6,2,5,0,3,5
 	
 DELAY_1MS:
-    MOV R7, #2      ; 1¸ö»úÆ÷ÖÜÆÚ
+    MOV R7, #2      ; 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 LOOP1:
-    MOV R6, #1    ; 1¸ö»úÆ÷ÖÜÆÚ
+    MOV R6, #1    ; 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 LOOP2:
-    MOV R5, #249    ; 1¸ö»úÆ÷ÖÜÆÚ
+    MOV R5, #249    ; 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 LOOP3:
-    DJNZ R5, LOOP3  ; 2¸ö»úÆ÷ÖÜÆÚ
-    DJNZ R6, LOOP2  ; 2¸ö»úÆ÷ÖÜÆÚ
-    DJNZ R7, LOOP1  ; 2¸ö»úÆ÷ÖÜÆÚ
-    RET             ; 2¸ö»úÆ÷ÖÜÆÚ
+    DJNZ R5, LOOP3  ; 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    DJNZ R6, LOOP2  ; 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    DJNZ R7, LOOP1  ; 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    RET             ; 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 SITE_DATA:
     DB  0XC9,0XC6,0XC3,0X89,0X86,0X83,0X82,0X81,0X80
 SITE_WEEK:		
