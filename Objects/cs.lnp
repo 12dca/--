@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\cs" RTX51 
+PRINT(".\Listings\cs.m51")
