@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     1
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02c
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   0083                55     READ_MIN   EQU 0x83   ; ¶Á·Ö
   0085                56     READ_HOUR  EQU 0x85   ; ¶ÁÊ±
   0087                57     READ_DAY   EQU 0x87   ; ¶ÁÈÕ
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     2
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     2
 
   0089                58     READ_MONTH EQU 0x89   ; ¶ÁÔÂ
   008B                59     READ_WEEK  EQU 0x8B   ; ¶ÁÐÇÆÚ
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
 0077 1200F1          121              LCALL DS1302_Enable_Write
 007A 7F85            122              MOV     R7, #85H
 007C 12011D          123          LCALL   DS1302_READ
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     3
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     3
 
 007F F532            124              MOV     HOUR, A              ; ´æµ½Ê±±äÁ¿
 0081 7F84            125              MOV     R7, #84H
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
 00FD                 187     DS1302_Disable_Write:
 00FD C292            188         CLR     RST
 00FF C297            189         CLR     SCLK
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     4
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     4
 
 0101 7F8E            190         MOV     R7, #8EH
 0103 7E80            191         MOV     R6, #80H
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
 0151 D0E0            253         POP     ACC
 0153 22              254         RET
                      255     
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     5
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     5
 
 0154                 256     DS1302_READ_BYTE:
 0154 C0F0            257         PUSH  B
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
 01B8                 319              ZD44:
 01B8 AD51            320              MOV R5,FALL_TIME_L
 01BA AE52            321              MOV R6,FALL_TIME_H
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     6
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     6
 
 01BC BE0009          322              CJNE R6,#00H,ZD11
 01BF BD0006          323              CJNE R5,#00H,ZD11
@@ -405,7 +405,7 @@ LOC  OBJ            LINE     SOURCE
 0222 8011            385              SJMP KEY2
                      386     ;        INC YEARL
 0224                 387          KEY1_2:
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     7
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     7
 
 0224 9005BC          388              MOV DPTR,#SITE_DATA   
 0227 A3              389              INC DPTR
@@ -473,7 +473,7 @@ LOC  OBJ            LINE     SOURCE
 028B 8008            451              SJMP KEY4
 028D                 452              KEY3_1:     
 028D D2A3            453              SETB BUZZER
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     8
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     8
 
 028F 8B51            454              MOV FALL_TIME_L,R3
 0291 8A52            455              MOV FALL_TIME_H,R2
@@ -541,7 +541,7 @@ LOC  OBJ            LINE     SOURCE
 02F3 755300          517              MOV TIME_L,#0
 02F6 8B51            518              MOV FALL_TIME_L,R3
 02F8 8A52            519              MOV FALL_TIME_H,R2
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE     9
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE     9
 
 02FA C28E            520              CLR TR1
 02FC 758DD8          521              MOV TH1, #0D8H       ; ¸ßÎ»
@@ -609,7 +609,7 @@ LOC  OBJ            LINE     SOURCE
 035C 753100          583              MOV MINUTE,#0
 035F 8074            584              SJMP INC_ONE_END
 0361                 585              INC_ONE001:
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    10
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    10
 
 0361 B4C30F          586          CJNE A, #0XC3,INC_ONE002
 0364 E532            587              MOV A,HOUR
@@ -677,7 +677,7 @@ LOC  OBJ            LINE     SOURCE
 03D3 8000            649              SJMP INC_ONE_END
 03D5                 650              INC_ONE_END: 
 03D5 22              651              RET
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    11
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    11
 
                      652     ;INTT0:
                      653     ;        PUSH ACC
@@ -745,7 +745,7 @@ LOC  OBJ            LINE     SOURCE
                      715     ;        XRL   A,#29H
                      716     ;        JZ    CLKE111              ;ÈòÄê¶þÔÂ¿ÉÒÔÓÐ29ÈÕ
                      717     ;        CLK3:
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    12
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    12
 
                      718     ;        MOV   DAY,#1          ;µ÷Õûµ½ÏÂ¸öÔÂµÄ1ÈÕ
                      719     ;        MOV   A,MONTH
@@ -813,7 +813,7 @@ LOC  OBJ            LINE     SOURCE
 0422 F580            781              MOV LCD_DATA,A
 0424 91E4            782              CALL LCD_WRITE_DATA
 0426 75802D          783              MOV LCD_DATA,#45
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    13
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    13
 
 0429 91E4            784              CALL LCD_WRITE_DATA
 042B D082            785              POP DPL
@@ -881,7 +881,7 @@ LOC  OBJ            LINE     SOURCE
 0496 22              847              RET
 0497                 848          DISPLAY: ;¶ÔÊ×Ö½øÐÐÏÔÊ¾
 0497 18              849              DEC R0
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    14
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    14
 
 0498 E6              850          MOV A,@R0
 0499 75F010          851              MOV B,#10H
@@ -949,7 +949,7 @@ LOC  OBJ            LINE     SOURCE
 04F7 75F010          913         MOV B,#16
 04FA 84              914         DIV AB
 04FB 85F057          915         MOV TEMP_BYTE1,B
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    15
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    15
 
 04FE 75F00A          916         MOV B,#10
 0501 A4              917         MUL AB
@@ -1017,7 +1017,7 @@ LOC  OBJ            LINE     SOURCE
                      979         ; 1. ¼ÆËã ?(13m-1)/5?
 0563 E559            980         MOV A, TEMP_BYTE3    ; m
 0565 04              981         INC A                ; m+1   ¡û ¹Ø¼üÐÞÕ
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    16
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    16
 
 0566 75F00D          982         MOV B, #13
 0569 A4              983         MUL AB               ; A = 13(m+1)
@@ -1085,7 +1085,7 @@ LOC  OBJ            LINE     SOURCE
 05AF                1045     DELAY_1MS:
 05AF 7F02           1046         MOV R7, #2      ; 1¸ö»úÆ÷ÖÜÆÚ
 05B1                1047     LOOP1:
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    17
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    17
 
 05B1 7E01           1048         MOV R6, #1    ; 1¸ö»úÆ÷ÖÜÆÚ
 05B3                1049     LOOP2:
@@ -1109,7 +1109,7 @@ LOC  OBJ            LINE     SOURCE
 05D7 534154         1065             DB  53H,41h,54h
                     1066     
                     1067     END
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    18
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    18
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -1177,7 +1177,7 @@ KEY3_1 . . . . . . .  C ADDR   028DH   A
 KEY4 . . . . . . . .  C ADDR   0295H   A   
 KEY4_1 . . . . . . .  C ADDR   02B6H   A   
 KEY4_2 . . . . . . .  C ADDR   02C4H   A   
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    19
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    19
 
 KEY5 . . . . . . . .  C ADDR   02D4H   A   
 KEY_END. . . . . . .  C ADDR   0321H   A   
@@ -1245,7 +1245,7 @@ TEMP_BYTE4 . . . . .  D ADDR   005AH   A
 TH0. . . . . . . . .  D ADDR   008CH   A   
 TH1. . . . . . . . .  D ADDR   008DH   A   
 TIMES. . . . . . . .  D ADDR   0021H   A   
-A51 MACRO ASSEMBLER  MAIN                                                                 05/22/2026 14:38:07 PAGE    20
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:12:14 PAGE    20
 
 TIME_ADJUST. . . . .  B ADDR   00B0H.1 A   
 TIME_ADJUST_FLAG . .  D ADDR   0038H   A   
