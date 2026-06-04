@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     1
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02c
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   0083                55     READ_MIN   EQU 0x83   ; ����
   0085                56     READ_HOUR  EQU 0x85   ; ��ʱ
   0087                57     READ_DAY   EQU 0x87   ; ����
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     2
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     2
 
   0089                58     READ_MONTH EQU 0x89   ; ����
   008B                59     READ_WEEK  EQU 0x8B   ; ������
@@ -82,7 +82,7 @@ LOC  OBJ            LINE     SOURCE
                       70     ;ORG 0013H        ;���ж�1�жϳ������\n
                       71     ;RETI                   ;���ж�1�жϷ���\n
 001B                  72     ORG 001BH        ;��ʱ��T1�жϳ������\n
-001B 020171           73     LJMP  INTT1  ;����INTTOִ��\n
+001B 02017F           73     LJMP  INTT1  ;����INTTOִ��\n
                       74     ;RETI
                       75     ;ORG 0023H        ;�����жϳ�����ڵ�ַ
                       76     ;RETI                    ;�����жϳ��򷵻�\n
@@ -115,8 +115,8 @@ LOC  OBJ            LINE     SOURCE
                      103     ;        SETB TR0    ;������ʱ��
 004B D2BB            104              SETB PT1    ; ��ʱ��1�����ȼ�
 004D 7C19            105              MOV R4,#19H
-004F 91CA            106              CALL LCD_INIT
-0051 9005BC          107              MOV DPTR,#SITE_DATA  ;���õ�����ַ
+004F 91D8            106              CALL LCD_INIT
+0051 9005CA          107              MOV DPTR,#SITE_DATA  ;���õ�����ַ
 0054 75370F          108              MOV TIME_DELAY_FLAG,#0FH
 0057 753620          109              MOV YEARH,#20H
 005A 753526          110              MOV YEARL,#26H
@@ -130,10 +130,10 @@ LOC  OBJ            LINE     SOURCE
 006F 8A52            118              MOV FALL_TIME_H,R2
 0071 753F00          119              MOV UPRIGHT_TIME_NUMBER,#0
 0074 755B00          120              MOV UPRIGHT_TIME_FLAG,#0
-0077 1200F1          121              LCALL DS1302_Enable_Write
+0077 1200FF          121              LCALL DS1302_Enable_Write
 007A 7F85            122              MOV     R7, #85H
-007C 12011D          123          LCALL   DS1302_READ
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     3
+007C 12012B          123          LCALL   DS1302_READ
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     3
 
 007F F532            124              MOV     HOUR, A              ; �浽ʱ����
 0081 7F84            125              MOV     R7, #84H
@@ -141,982 +141,988 @@ LOC  OBJ            LINE     SOURCE
 0085 547F            127          ANL     A, #7FH       ; �������λ����8λ��������
                              ��7λ
 0087 FE              128          MOV     R6, A         ; ���洦�����ֵ��R6
-0088 120131          129          LCALL   DS1302_WRITE
-008B 1200FD          130              LCALL   DS1302_Disable_Write         ; ����д����
+0088 12013F          129          LCALL   DS1302_WRITE
+008B 12010B          130              LCALL   DS1302_Disable_Write         ; ����д����
 008E                 131              MAIN:
 008E E538            132              MOV A,TIME_ADJUST_FLAG
 0090 B40004          133          CJNE A,#0,main1
 0093 11A3            134              CALL GET_TIME
 0095 8003            135              SJMP main2
 0097                 136              main1:
-0097 1200C7          137              LCALL WRITE_ALL_TIME
+0097 1200CE          137              LCALL WRITE_ALL_TIME
 009A                 138              main2:
-009A 91F5            139              CALL WEEK   ;�������
-009C 71D6            140              CALL SHOW   ;��ʾ
-009E 31D7            141              CALL KEY_SCAN  ;�����߼�����
+009A B103            139              CALL WEEK   ;�������
+009C 71E4            140              CALL SHOW   ;��ʾ
+009E 31E5            141              CALL KEY_SCAN  ;�����߼�����
 00A0 02008E          142              LJMP  MAIN
                      143              
 00A3                 144     GET_TIME:
 00A3 7F81            145         MOV     R7, #81H
-00A5 12011D          146         LCALL   DS1302_READ
+00A5 12012B          146         LCALL   DS1302_READ
 00A8 F530            147             MOV     SEC, A              ; �浽�����
 00AA 7F83            148             MOV     R7, #83H
-00AC 12011D          149         LCALL   DS1302_READ
+00AC 12012B          149         LCALL   DS1302_READ
 00AF F531            150             MOV     MINUTE, A              ; �浽�ֱ���
 00B1 7F85            151             MOV     R7, #85H
-00B3 12011D          152         LCALL   DS1302_READ
+00B3 12012B          152         LCALL   DS1302_READ
 00B6 F532            153             MOV     HOUR, A              ; �浽ʱ����
-00B8 7F87            154             MOV     R7, #87H
-00BA 12011D          155         LCALL   DS1302_READ
-00BD F534            156             MOV     MONTH, A              ; �浽�±���
-00BF 7F8D            157             MOV     R7, #8DH
-00C1 12011D          158         LCALL   DS1302_READ
-00C4 F535            159             MOV     YEARL, A              ; �浽�����
-00C6 22              160             RET
-00C7                 161     WRITE_ALL_TIME:
-00C7 1200F1          162          LCALL DS1302_Enable_Write
-00CA 7F80            163          MOV     R7, #80H
-00CC AE30            164          MOV     R6, SEC         
-00CE 120131          165          LCALL   DS1302_WRITE
-00D1 7F82            166              MOV     R7, #82H
-00D3 AE31            167          MOV     R6, MINUTE       
-00D5 120131          168          LCALL   DS1302_WRITE
-00D8 7F84            169              MOV     R7, #84H
-00DA AE32            170          MOV     R6, HOUR        
-00DC 120131          171          LCALL   DS1302_WRITE
-00DF 7F86            172              MOV     R7, #86H
-00E1 AE34            173          MOV     R6, MONTH         
-00E3 120131          174          LCALL   DS1302_WRITE
-00E6 7F8C            175              MOV     R7, #8CH
-00E8 AE35            176          MOV     R6, YEARL         
-00EA 120131          177          LCALL   DS1302_WRITE
-00ED 1200FD          178              LCALL   DS1302_Disable_Write         ; ����д����
-00F0 22              179              RET
-00F1                 180     DS1302_Enable_Write:
-00F1 C292            181         CLR     RST
-00F3 C297            182         CLR     SCLK
-00F5 7F8E            183         MOV     R7, #8EH
-00F7 7E00            184         MOV     R6, #00H
-00F9 120131          185         LCALL   DS1302_WRITE
-00FC 22              186         RET  
-00FD                 187     DS1302_Disable_Write:
-00FD C292            188         CLR     RST
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     4
+00B8 7F89            154             MOV     R7, #89H           ; ★修正: 89H才是月寄存器地址
+00BA 12012B          155         LCALL   DS1302_READ
+00BD F534            156             MOV     MONTH, A              ; 保存到月份单元
+00BF 7F87            157             MOV     R7, #87H           ; 读取日寄存器
+00C1 12012B          158         LCALL   DS1302_READ
+00C4 F533            159             MOV     DAY, A               ; 保存到日单元
+00C6 7F8D            160             MOV     R7, #8DH
+00C8 12012B          161         LCALL   DS1302_READ
+00CB F535            162             MOV     YEARL, A              ; �浽�����
+00CD 22              163             RET
+00CE                 164     WRITE_ALL_TIME:
+00CE 1200FF          165          LCALL DS1302_Enable_Write
+00D1 7F80            166          MOV     R7, #80H
+00D3 AE30            167          MOV     R6, SEC         
+00D5 12013F          168          LCALL   DS1302_WRITE
+00D8 7F82            169              MOV     R7, #82H
+00DA AE31            170          MOV     R6, MINUTE       
+00DC 12013F          171          LCALL   DS1302_WRITE
+00DF 7F84            172              MOV     R7, #84H
+00E1 AE32            173          MOV     R6, HOUR        
+00E3 12013F          174          LCALL   DS1302_WRITE
+00E6 7F88            175              MOV     R7, #88H          ; ★修正: 88H才是写月寄存器地址
+00E8 AE34            176          MOV     R6, MONTH
+00EA 12013F          177          LCALL   DS1302_WRITE
+00ED 7F86            178              MOV     R7, #86H          ; 写日寄存器
+00EF AE33            179          MOV     R6, DAY
+00F1 12013F          180          LCALL   DS1302_WRITE
+00F4 7F8C            181              MOV     R7, #8CH
+00F6 AE35            182          MOV     R6, YEARL         
+00F8 12013F          183          LCALL   DS1302_WRITE
+00FB 12010B          184              LCALL   DS1302_Disable_Write         ; ����д����
+00FE 22              185              RET
+00FF                 186     DS1302_Enable_Write:
+00FF C292            187         CLR     RST
+0101 C297            188         CLR     SCLK
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     4
 
-00FF C297            189         CLR     SCLK
-0101 7F8E            190         MOV     R7, #8EH
-0103 7E80            191         MOV     R6, #80H
-0105 120131          192         LCALL   DS1302_WRITE
-0108 22              193         RET  
-                     194     ; BCD ��תʮ���� (������) �ӳ���
-                     195     ; ���: A = BCD �� (�� 0x35)
-                     196     ; ����: A = ʮ������ֵ (�� 35)
-                     197     ; ԭ��: ʮλ*10 + ��λ
-                     198     ;--------------------------------------------------------------------
-0109                 199     BCD_TO_DEC:
-0109 C0F0            200         PUSH    B
-010B F5F0            201         MOV     B, A
-010D 540F            202         ANL     A, #0FH         ; ��λ
-010F FA              203         MOV     R2, A
-0110 E5F0            204         MOV     A, B
-0112 C4              205         SWAP    A
-0113 540F            206         ANL     A, #0FH         ; ʮλ
-0115 75F00A          207         MOV     B, #10
-0118 A4              208         MUL     AB
-0119 2A              209         ADD     A, R2
-011A D0F0            210         POP     B
-011C 22              211         RET
-                     212     ;------------------------------------------------------
-                     213     ; ��DS1302ָ�������ַ��һ���ֽ� (������A��)
-                     214     ; ����������A��
-                     215     ;------------------------------------------------------
-011D                 216     DS1302_READ:
-011D C292            217         CLR     RST
-011F C297            218         CLR     SCLK
-0121 D292            219         SETB    RST
-0123 EF              220         MOV     A, R7           ; ���͵�ַ
-0124 120144          221         LCALL   DS1302_WRITE_BYTE
-0127 D2A7            222         SETB    IO              ; �л� IO Ϊ���루51 ������ǰ��д 1�
+0103 7F8E            189         MOV     R7, #8EH
+0105 7E00            190         MOV     R6, #00H
+0107 12013F          191         LCALL   DS1302_WRITE
+010A 22              192         RET  
+010B                 193     DS1302_Disable_Write:
+010B C292            194         CLR     RST
+010D C297            195         CLR     SCLK
+010F 7F8E            196         MOV     R7, #8EH
+0111 7E80            197         MOV     R6, #80H
+0113 12013F          198         LCALL   DS1302_WRITE
+0116 22              199         RET  
+                     200     ; BCD ��תʮ���� (������) �ӳ���
+                     201     ; ���: A = BCD �� (�� 0x35)
+                     202     ; ����: A = ʮ������ֵ (�� 35)
+                     203     ; ԭ��: ʮλ*10 + ��λ
+                     204     ;--------------------------------------------------------------------
+0117                 205     BCD_TO_DEC:
+0117 C0F0            206         PUSH    B
+0119 F5F0            207         MOV     B, A
+011B 540F            208         ANL     A, #0FH         ; ��λ
+011D FA              209         MOV     R2, A
+011E E5F0            210         MOV     A, B
+0120 C4              211         SWAP    A
+0121 540F            212         ANL     A, #0FH         ; ʮλ
+0123 75F00A          213         MOV     B, #10
+0126 A4              214         MUL     AB
+0127 2A              215         ADD     A, R2
+0128 D0F0            216         POP     B
+012A 22              217         RET
+                     218     ;------------------------------------------------------
+                     219     ; ��DS1302ָ�������ַ��һ���ֽ� (������A��)
+                     220     ; ����������A��
+                     221     ;------------------------------------------------------
+012B                 222     DS1302_READ:
+012B C292            223         CLR     RST
+012D C297            224         CLR     SCLK
+012F D292            225         SETB    RST
+0131 EF              226         MOV     A, R7           ; ���͵�ַ
+0132 120152          227         LCALL   DS1302_WRITE_BYTE
+0135 D2A7            228         SETB    IO              ; �л� IO Ϊ���루51 ������ǰ��д 1�
                              ��
-0129 120154          223         LCALL   DS1302_READ_BYTE
-012C C297            224         CLR     SCLK
-012E C292            225         CLR     RST
-0130 22              226         RET
-                     227     
-                     228     ; �� DS1302 ָ����ַ��ȡһ�������ֽ�
-                     229     ; ��ڣ�R7 = �����ַ���� 0x81 ���룩
-                     230     ; ���ڣ�A = ����������
-                     231     ;------------------------------------------------
-0131                 232     DS1302_WRITE:
-0131 C292            233         CLR     RST
-0133 C297            234         CLR     SCLK
-0135 D292            235         SETB    RST
-0137 EF              236         MOV     A, R7           ; ���͵�ַ
-0138 120144          237         LCALL   DS1302_WRITE_BYTE
-013B EE              238         MOV     A, R6           ; ��������
-013C 120144          239         LCALL   DS1302_WRITE_BYTE
-013F C297            240         CLR     SCLK
-0141 C292            241         CLR     RST
-0143 22              242         RET
-                     243     ; �� DS1302 д��һ���ֽڣ���λ�ȣ�
-0144                 244     DS1302_WRITE_BYTE:
-0144 C0E0            245         PUSH    ACC
-0146 7F08            246         MOV     R7, #8          ; 8 λ����
-0148                 247     WB_LOOP:
-0148 C297            248         CLR     SCLK            ; ʱ������
-014A 13              249         RRC     A               ; ��λ���� CY
-014B 92A7            250         MOV     IO, C           ; �������λ
-014D D297            251         SETB    SCLK            ; ʱ�������أ�DS1302 ����
-014F DFF7            252         DJNZ    R7, WB_LOOP
-0151 D0E0            253         POP     ACC
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     5
+0137 120162          229         LCALL   DS1302_READ_BYTE
+013A C297            230         CLR     SCLK
+013C C292            231         CLR     RST
+013E 22              232         RET
+                     233     
+                     234     ; �� DS1302 ָ����ַ��ȡһ�������ֽ�
+                     235     ; ��ڣ�R7 = �����ַ���� 0x81 ���룩
+                     236     ; ���ڣ�A = ����������
+                     237     ;------------------------------------------------
+013F                 238     DS1302_WRITE:
+013F C292            239         CLR     RST
+0141 C297            240         CLR     SCLK
+0143 D292            241         SETB    RST
+0145 EF              242         MOV     A, R7           ; ���͵�ַ
+0146 120152          243         LCALL   DS1302_WRITE_BYTE
+0149 EE              244         MOV     A, R6           ; ��������
+014A 120152          245         LCALL   DS1302_WRITE_BYTE
+014D C297            246         CLR     SCLK
+014F C292            247         CLR     RST
+0151 22              248         RET
+                     249     ; �� DS1302 д��һ���ֽڣ���λ�ȣ�
+0152                 250     DS1302_WRITE_BYTE:
+0152 C0E0            251         PUSH    ACC
+0154 7F08            252         MOV     R7, #8          ; 8 λ����
+0156                 253     WB_LOOP:
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     5
 
-0153 22              254         RET
-                     255     ;��DS1302��ȡһ���ֽ� (����������A��)    
-0154                 256     DS1302_READ_BYTE:
-0154 C0F0            257         PUSH  B
-0156 7E08            258         MOV   R6, #8
-0158 75F000          259         MOV   B, #0
-015B                 260     RB_LOOP:
-015B D297            261         SETB  SCLK             ; ����ʱ�ӣ�׼��
-015D 00              262         NOP
-015E 00              263             NOP
-015F C297            264         CLR   SCLK             ; �� �½���: DS1302�ڴ˿̸ı�IO������
+0156 C297            254         CLR     SCLK            ; ʱ������
+0158 13              255         RRC     A               ; ��λ���� CY
+0159 92A7            256         MOV     IO, C           ; �������λ
+015B D297            257         SETB    SCLK            ; ʱ�������أ�DS1302 ����
+015D DFF7            258         DJNZ    R7, WB_LOOP
+015F D0E0            259         POP     ACC
+0161 22              260         RET
+                     261     ;��DS1302��ȡһ���ֽ� (����������A��)    
+0162                 262     DS1302_READ_BYTE:
+0162 C0F0            263         PUSH  B
+0164 7E08            264         MOV   R6, #8
+0166 75F000          265         MOV   B, #0
+0169                 266     RB_LOOP:
+0169 D297            267         SETB  SCLK             ; ����ʱ�ӣ�׼��
+016B 00              268         NOP
+016C 00              269             NOP
+016D C297            270         CLR   SCLK             ; �� �½���: DS1302�ڴ˿̸ı�IO������
                              ���
-0161 00              265             NOP
-0162 00              266         NOP
-0163 A2A7            267         MOV   C, IO            ; ������ȡ�ȶ�������
-0165 E5F0            268         MOV   A, B
-0167 13              269         RRC   A                ; �������λ����ACC�ĵ�λ
-0168 F5F0            270         MOV   B, A
-016A DEEF            271         DJNZ  R6, RB_LOOP
-016C E5F0            272         MOV   A, B
-016E D0F0            273         POP   B
-0170 22              274         RET
-                     275     
-0171                 276     INTT1:
-0171 C0E0            277          PUSH ACC
-0173 C0D0            278              PUSH PSW
-0175 C000            279              PUSH 00H
-0177 C005            280              PUSH 05H
-0179 C006            281              PUSH 06H
-017B C007            282              PUSH 07H
-017D C0F0            283              PUSH 0F0H       ; ����B
-017F 758DD8          284              MOV TH1, #0D8H       ; ��λ
-0182 758BF0          285          MOV TL1, #0F0H       ; ��λ
-                     286              
-0185 E550            287              MOV A,TIME_ADJUST_MODE   ;��ȡģʽ
-0187 B4011A          288          CJNE A,#1,ZD22;   
-                     289              
-018A E553            290              MOV A,TIME_L  ;����ʱ
-018C 2401            291              ADD A,#1
-018E F5F0            292              MOV B,A
-0190 D4              293              DA A ;ʮ���Ƶ���
-0191 F553            294              MOV TIME_L,A
-0193 E5F0            295              MOV A,B
-                     296              
-0195 B49A30          297              CJNE A,#9AH,ZD11 ;
-0198 755300          298              MOV TIME_L,#0
-019B E554            299              MOV A,TIME_H
-019D 2401            300              ADD A,#1
-019F D4              301              DA A
-01A0 F554            302              MOV TIME_H,A
-01A2 8024            303              SJMP ZD11
-                     304              
-01A4                 305              ZD22:    ;����ʱ
-01A4 E551            306              MOV A,FALL_TIME_L
-01A6 2499            307              ADD A, #99H       ; �൱�ڼ�1
-01A8 D4              308              DA A ;ʮ���Ƶ���
-01A9 F551            309              MOV FALL_TIME_L,A
-01AB 5002            310              JNC ZD33 ;
-01AD 8009            311              SJMP ZD44
-01AF                 312              ZD33:
-01AF E552            313              MOV A,FALL_TIME_H
-01B1 2499            314              ADD A, #99H       ; �൱�ڼ�1
-01B3 D4              315              DA A
-01B4 F552            316              MOV FALL_TIME_H,A
-01B6 8000            317              SJMP ZD44
-                     318              
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     6
+016F 00              271             NOP
+0170 00              272         NOP
+0171 A2A7            273         MOV   C, IO            ; ������ȡ�ȶ�������
+0173 E5F0            274         MOV   A, B
+0175 13              275         RRC   A                ; �������λ����ACC�ĵ�λ
+0176 F5F0            276         MOV   B, A
+0178 DEEF            277         DJNZ  R6, RB_LOOP
+017A E5F0            278         MOV   A, B
+017C D0F0            279         POP   B
+017E 22              280         RET
+                     281     
+017F                 282     INTT1:
+017F C0E0            283          PUSH ACC
+0181 C0D0            284              PUSH PSW
+0183 C000            285              PUSH 00H
+0185 C005            286              PUSH 05H
+0187 C006            287              PUSH 06H
+0189 C007            288              PUSH 07H
+018B C0F0            289              PUSH 0F0H       ; ����B
+018D 758DD8          290              MOV TH1, #0D8H       ; ��λ
+0190 758BF0          291          MOV TL1, #0F0H       ; ��λ
+                     292              
+0193 E550            293              MOV A,TIME_ADJUST_MODE   ;��ȡģʽ
+0195 B4011A          294          CJNE A,#1,ZD22;   
+                     295              
+0198 E553            296              MOV A,TIME_L  ;����ʱ
+019A 2401            297              ADD A,#1
+019C F5F0            298              MOV B,A
+019E D4              299              DA A ;ʮ���Ƶ���
+019F F553            300              MOV TIME_L,A
+01A1 E5F0            301              MOV A,B
+                     302              
+01A3 B49A30          303              CJNE A,#9AH,ZD11 ;
+01A6 755300          304              MOV TIME_L,#0
+01A9 E554            305              MOV A,TIME_H
+01AB 2401            306              ADD A,#1
+01AD D4              307              DA A
+01AE F554            308              MOV TIME_H,A
+01B0 8024            309              SJMP ZD11
+                     310              
+01B2                 311              ZD22:    ;����ʱ
+01B2 E551            312              MOV A,FALL_TIME_L
+01B4 2499            313              ADD A, #99H       ; �൱�ڼ�1
+01B6 D4              314              DA A ;ʮ���Ƶ���
+01B7 F551            315              MOV FALL_TIME_L,A
+01B9 5002            316              JNC ZD33 ;
+01BB 8009            317              SJMP ZD44
+01BD                 318              ZD33:
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     6
 
-01B8                 319              ZD44:
-01B8 AD51            320              MOV R5,FALL_TIME_L
-01BA AE52            321              MOV R6,FALL_TIME_H
-01BC BE0009          322              CJNE R6,#00H,ZD11
-01BF BD0006          323              CJNE R5,#00H,ZD11
-01C2 C28E            324              CLR TR1           ;�رն�ʱ������������
-01C4 C2A3            325              CLR BUZZER
-01C6 8000            326              SJMP ZD11
-01C8                 327          ZD11:
-01C8 D0F0            328              POP 0F0H       ; ��B
-01CA D007            329              POP 07H
-01CC D006            330              POP 06H
-01CE D005            331              POP 05H
-01D0 D000            332              POP 00H
-01D2 D0D0            333              POP PSW
-01D4 D0E0            334              POP ACC
-01D6 32              335              RETI
-                     336     
-01D7                 337     KEY_SCAN:
-01D7 1537            338          DEC TIME_DELAY_FLAG
-01D9 E537            339          MOV A,TIME_DELAY_FLAG
-01DB 7013            340              JNZ KEY1    ;TIME_DELAY_FLAG������0��ת
-01DD                 341              WUYU:       ;��˸
-01DD 753703          342              MOV TIME_DELAY_FLAG,#03H
-                     343     ;        JNB TIME_ADJUST_FLAG,KEY1
-01E0 E538            344          MOV A,TIME_ADJUST_FLAG
-01E2 B4010B          345          CJNE A,#1,KEY1
-01E5 E4              346              CLR A
-01E6 93              347              MOVC A,@A+DPTR
-01E7 F580            348              MOV LCD_DATA,A
-01E9 91B9            349              CALL LCD_WRITE_CMD
-01EB 758020          350              MOV LCD_DATA,#' '
-01EE 91E4            351              CALL LCD_WRITE_DATA
-                     352              
-                     353              
-01F0                 354          KEY1:
-01F0 A2B1            355          MOV   C, TIME_ADJUST      ; ��ȡ����״̬
-01F2 4041            356          JC    KEY2       ; ���C=1������δ���£�����ת
-01F4 7814            357          MOV R0,#20
-01F6                 358              DELAY_S0:
-01F6 B1AF            359              CALL DELAY_1MS
-01F8 D8FC            360          DJNZ R0,DELAY_S0
-01FA A2B1            361          MOV   C, TIME_ADJUST      ; �ٴμ��
-01FC 4037            362          JC    KEY2       ; ����Ƕ�������ת
-01FE                 363              KEY_WAIT_RELEASE0:
-                     364              
-01FE A2B1            365          MOV   C, TIME_ADJUST
-0200 50FC            366          JNC   KEY_WAIT_RELEASE0    ; ������ǵ͵�ƽ�������ȴ�
-                     367              
-0202 E550            368          MOV A,TIME_ADJUST_MODE
-0204 B40012          369          CJNE A,#0,KEY1_1;
-0207 9005BC          370              MOV DPTR,#SITE_DATA     ;ģʽ1
-                     371     ;        CPL TIME_ADJUST_FLAG
-020A 0538            372          INC TIME_ADJUST_FLAG
-020C 75F002          373          MOV B,#2
-020F E538            374              MOV A,TIME_ADJUST_FLAG
-0211 84              375              DIV AB
-0212 85F038          376              MOV TIME_ADJUST_FLAG,B
-0215 B28C            377              CPL TR0
-0217 801C            378              SJMP KEY2
-                     379              
-0219                 380              KEY1_1:
-0219 B40108          381          CJNE A,#1,KEY1_2;
-021C 755300          382              MOV TIME_L,#0         ;����ʱ����
-021F 755400          383              MOV TIME_H,#0
-                     384     ;        MOV UPRIGHT_TIME_NUMBER,#0
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     7
+01BD E552            319              MOV A,FALL_TIME_H
+01BF 2499            320              ADD A, #99H       ; �൱�ڼ�1
+01C1 D4              321              DA A
+01C2 F552            322              MOV FALL_TIME_H,A
+01C4 8000            323              SJMP ZD44
+                     324              
+01C6                 325              ZD44:
+01C6 AD51            326              MOV R5,FALL_TIME_L
+01C8 AE52            327              MOV R6,FALL_TIME_H
+01CA BE0009          328              CJNE R6,#00H,ZD11
+01CD BD0006          329              CJNE R5,#00H,ZD11
+01D0 C28E            330              CLR TR1           ;�رն�ʱ������������
+01D2 C2A3            331              CLR BUZZER
+01D4 8000            332              SJMP ZD11
+01D6                 333          ZD11:
+01D6 D0F0            334              POP 0F0H       ; ��B
+01D8 D007            335              POP 07H
+01DA D006            336              POP 06H
+01DC D005            337              POP 05H
+01DE D000            338              POP 00H
+01E0 D0D0            339              POP PSW
+01E2 D0E0            340              POP ACC
+01E4 32              341              RETI
+                     342     
+01E5                 343     KEY_SCAN:
+01E5 1537            344          DEC TIME_DELAY_FLAG
+01E7 E537            345          MOV A,TIME_DELAY_FLAG
+01E9 7013            346              JNZ KEY1    ;TIME_DELAY_FLAG������0��ת
+01EB                 347              WUYU:       ;��˸
+01EB 753703          348              MOV TIME_DELAY_FLAG,#03H
+                     349     ;        JNB TIME_ADJUST_FLAG,KEY1
+01EE E538            350          MOV A,TIME_ADJUST_FLAG
+01F0 B4010B          351          CJNE A,#1,KEY1
+01F3 E4              352              CLR A
+01F4 93              353              MOVC A,@A+DPTR
+01F5 F580            354              MOV LCD_DATA,A
+01F7 91C7            355              CALL LCD_WRITE_CMD
+01F9 758020          356              MOV LCD_DATA,#' '
+01FC 91F2            357              CALL LCD_WRITE_DATA
+                     358              
+                     359              
+01FE                 360          KEY1:
+01FE A2B1            361          MOV   C, TIME_ADJUST      ; ��ȡ����״̬
+0200 4041            362          JC    KEY2       ; ���C=1������δ���£�����ת
+0202 7814            363          MOV R0,#20
+0204                 364              DELAY_S0:
+0204 B1BD            365              CALL DELAY_1MS
+0206 D8FC            366          DJNZ R0,DELAY_S0
+0208 A2B1            367          MOV   C, TIME_ADJUST      ; �ٴμ��
+020A 4037            368          JC    KEY2       ; ����Ƕ�������ת
+020C                 369              KEY_WAIT_RELEASE0:
+                     370              
+020C A2B1            371          MOV   C, TIME_ADJUST
+020E 50FC            372          JNC   KEY_WAIT_RELEASE0    ; ������ǵ͵�ƽ�������ȴ�
+                     373              
+0210 E550            374          MOV A,TIME_ADJUST_MODE
+0212 B40012          375          CJNE A,#0,KEY1_1;
+0215 9005CA          376              MOV DPTR,#SITE_DATA     ;ģʽ1
+                     377     ;        CPL TIME_ADJUST_FLAG
+0218 0538            378          INC TIME_ADJUST_FLAG
+021A 75F002          379          MOV B,#2
+021D E538            380              MOV A,TIME_ADJUST_FLAG
+021F 84              381              DIV AB
+0220 85F038          382              MOV TIME_ADJUST_FLAG,B
+0223 B28C            383              CPL TR0
+0225 801C            384              SJMP KEY2
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     7
 
-0222 8011            385              SJMP KEY2
-                     386     ;        INC YEARL
-0224                 387          KEY1_2:
-0224 9005BC          388              MOV DPTR,#SITE_DATA  ;����ʱѡ��λ�ý��е���
-0227 A3              389              INC DPTR
-                     390     ;        CPL TIME_ADJUST_FLAG2
-0228 0538            391          INC TIME_ADJUST_FLAG
-022A 75F002          392          MOV B,#2
-022D E538            393              MOV A,TIME_ADJUST_FLAG
-022F 84              394              DIV AB
-0230 85F038          395              MOV TIME_ADJUST_FLAG,B
-0233 8000            396              SJMP KEY2
-                     397              
-0235                 398              KEY2:
-0235 A2B2            399          MOV   C, ADD_ONE      ; ��ȡ����״̬
-0237 403B            400          JC    KEY3       ; ���C=1������δ���£�����ת
-0239 7814            401          MOV R0,#20       
-023B                 402              DELAY_S1:
-023B B1AF            403              CALL DELAY_1MS
-023D D8FC            404          DJNZ R0,DELAY_S1
-023F A2B2            405          MOV   C, ADD_ONE      ; �ٴμ��
-0241 4031            406          JC    KEY3       ; ����Ƕ�������ת
-0243                 407              KEY_WAIT_RELEASE1:
-0243 A2B2            408          MOV   C, ADD_ONE
-0245 50FC            409          JNC   KEY_WAIT_RELEASE1    ; ������ǵ͵�ƽ�������ȴ�
-                     410     ;        JNB TIME_ADJUST_FLAG,KEY_END
-0247 E538            411          MOV A,TIME_ADJUST_FLAG  ;
-0249 B4010D          412          CJNE A,#1,KEY2_2  
-024C E550            413              MOV A,TIME_ADJUST_MODE
-024E B40004          414              CJNE A,#0,KEY2_1
-0251 713D            415              CALL INC_ONE      ;ģʽ1��1
-0253 801F            416              SJMP KEY3
-0255                 417              KEY2_1:           ;ģʽ3��1
-0255 7122            418              CALL FALL_INC_ONE
-0257 801B            419              SJMP KEY3
-0259                 420              KEY2_2:   ;ģʽ2�Ķ�μ�ʱ��¼
-0259 75F003          421              MOV B,#3
-025C E53F            422              MOV A,UPRIGHT_TIME_NUMBER
-025E 84              423              DIV AB
-025F 85F03F          424              MOV UPRIGHT_TIME_NUMBER,B
-0262 E5F0            425              MOV A, B                  
-0264 25E0            426          ADD A, ACC
-0266 243A            427              ADD A,#TIME_H_1
-0268 F8              428              MOV R0,A
-0269 E554            429              MOV A, TIME_H
-026B F6              430          MOV @R0, A
-026C 18              431              DEC R0
-026D E553            432              MOV A, TIME_L
-026F F6              433          MOV @R0, A 
-0270 E53F            434          MOV A,UPRIGHT_TIME_NUMBER   
-0272 053F            435              INC UPRIGHT_TIME_NUMBER
-                     436                                      
-0274                 437              KEY3:
-0274 A2B3            438              MOV   C, DEC_ONE      ; ��ȡ����״̬
-0276 401D            439          JC    KEY4       ; ���C=1������δ���£�����ת
-0278 7814            440          MOV R0,#20
-027A                 441              DELAY_S2:
-027A B1AF            442              CALL DELAY_1MS
-027C A2B3            443          MOV   C, DEC_ONE      ; �ٴμ��
-027E D8FA            444          DJNZ R0,DELAY_S2
-0280 4013            445          JC    KEY4       ; ����Ƕ�������ת
-0282                 446              KEY_WAIT_RELEASE2:
-0282 A2B3            447          MOV   C, DEC_ONE
-0284 50FC            448          JNC   KEY_WAIT_RELEASE2    ; ������ǵ͵�ƽ�������ȴ�
-0286 30A304          449              JNB BUZZER,KEY3_1 ;BUZZER=0��ת
-0289 B28E            450              CPL TR1    ;��ͣ
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     8
+                     385              
+0227                 386              KEY1_1:
+0227 B40108          387          CJNE A,#1,KEY1_2;
+022A 755300          388              MOV TIME_L,#0         ;����ʱ����
+022D 755400          389              MOV TIME_H,#0
+                     390     ;        MOV UPRIGHT_TIME_NUMBER,#0
+0230 8011            391              SJMP KEY2
+                     392     ;        INC YEARL
+0232                 393          KEY1_2:
+0232 9005CA          394              MOV DPTR,#SITE_DATA  ;����ʱѡ��λ�ý��е���
+0235 A3              395              INC DPTR
+                     396     ;        CPL TIME_ADJUST_FLAG2
+0236 0538            397          INC TIME_ADJUST_FLAG
+0238 75F002          398          MOV B,#2
+023B E538            399              MOV A,TIME_ADJUST_FLAG
+023D 84              400              DIV AB
+023E 85F038          401              MOV TIME_ADJUST_FLAG,B
+0241 8000            402              SJMP KEY2
+                     403              
+0243                 404              KEY2:
+0243 A2B2            405          MOV   C, ADD_ONE      ; ��ȡ����״̬
+0245 403B            406          JC    KEY3       ; ���C=1������δ���£�����ת
+0247 7814            407          MOV R0,#20       
+0249                 408              DELAY_S1:
+0249 B1BD            409              CALL DELAY_1MS
+024B D8FC            410          DJNZ R0,DELAY_S1
+024D A2B2            411          MOV   C, ADD_ONE      ; �ٴμ��
+024F 4031            412          JC    KEY3       ; ����Ƕ�������ת
+0251                 413              KEY_WAIT_RELEASE1:
+0251 A2B2            414          MOV   C, ADD_ONE
+0253 50FC            415          JNC   KEY_WAIT_RELEASE1    ; ������ǵ͵�ƽ�������ȴ�
+                     416     ;        JNB TIME_ADJUST_FLAG,KEY_END
+0255 E538            417          MOV A,TIME_ADJUST_FLAG  ;
+0257 B4010D          418          CJNE A,#1,KEY2_2  
+025A E550            419              MOV A,TIME_ADJUST_MODE
+025C B40004          420              CJNE A,#0,KEY2_1
+025F 714B            421              CALL INC_ONE      ;ģʽ1��1
+0261 801F            422              SJMP KEY3
+0263                 423              KEY2_1:           ;ģʽ3��1
+0263 7130            424              CALL FALL_INC_ONE
+0265 801B            425              SJMP KEY3
+0267                 426              KEY2_2:   ;ģʽ2�Ķ�μ�ʱ��¼
+0267 75F003          427              MOV B,#3
+026A E53F            428              MOV A,UPRIGHT_TIME_NUMBER
+026C 84              429              DIV AB
+026D 85F03F          430              MOV UPRIGHT_TIME_NUMBER,B
+0270 E5F0            431              MOV A, B                  
+0272 25E0            432          ADD A, ACC
+0274 243A            433              ADD A,#TIME_H_1
+0276 F8              434              MOV R0,A
+0277 E554            435              MOV A, TIME_H
+0279 F6              436          MOV @R0, A
+027A 18              437              DEC R0
+027B E553            438              MOV A, TIME_L
+027D F6              439          MOV @R0, A 
+027E E53F            440          MOV A,UPRIGHT_TIME_NUMBER   
+0280 053F            441              INC UPRIGHT_TIME_NUMBER
+                     442                                      
+0282                 443              KEY3:
+0282 A2B3            444              MOV   C, DEC_ONE      ; ��ȡ����״̬
+0284 401D            445          JC    KEY4       ; ���C=1������δ���£�����ת
+0286 7814            446          MOV R0,#20
+0288                 447              DELAY_S2:
+0288 B1BD            448              CALL DELAY_1MS
+028A A2B3            449          MOV   C, DEC_ONE      ; �ٴμ��
+028C D8FA            450          DJNZ R0,DELAY_S2
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     8
 
-028B 8008            451              SJMP KEY4
-028D                 452              KEY3_1:    ;����ʱ�����ָ�
-028D D2A3            453              SETB BUZZER
-028F 8B51            454              MOV FALL_TIME_L,R3
-0291 8A52            455              MOV FALL_TIME_H,R2
-0293 8000            456              SJMP KEY4
-                     457              
-0295                 458              KEY4:
-0295 A2B4            459              MOV   C, ADD_SITE      ; ��ȡ����״̬
-0297 403B            460          JC    KEY5       ; ���C=1������δ���£�����ת
-0299 7814            461          MOV R0,#20
-029B                 462              DELAY_S3:
-029B B1AF            463              CALL DELAY_1MS
-029D A2B4            464          MOV   C, ADD_SITE      ; �ٴμ��
-029F D8FA            465          DJNZ R0,DELAY_S3
-02A1 4031            466          JC    KEY5       ; ����Ƕ�������ת
-02A3                 467              KEY_WAIT_RELEASE3:
-02A3 A2B4            468          MOV   C, ADD_SITE
-02A5 50FC            469          JNC   KEY_WAIT_RELEASE3    ; ������ǵ͵�ƽ�������ȴ�
-                     470              
-02A7 E550            471          MOV A,TIME_ADJUST_MODE
-02A9 B4000A          472          CJNE A,#0,KEY4_1
-                     473              
-02AC E4              474              CLR A    ;ģʽ1����˸λ�õ���
-02AD 93              475              MOVC A,@A+DPTR
-02AE B4806F          476              CJNE A, #0X80,RETURN_SITE
-02B1 9005BC          477              MOV DPTR,#SITE_DATA
-02B4 806B            478              SJMP KEY_END
+028E 4013            451          JC    KEY4       ; ����Ƕ�������ת
+0290                 452              KEY_WAIT_RELEASE2:
+0290 A2B3            453          MOV   C, DEC_ONE
+0292 50FC            454          JNC   KEY_WAIT_RELEASE2    ; ������ǵ͵�ƽ�������ȴ�
+0294 30A304          455              JNB BUZZER,KEY3_1 ;BUZZER=0��ת
+0297 B28E            456              CPL TR1    ;��ͣ
+0299 8008            457              SJMP KEY4
+029B                 458              KEY3_1:    ;����ʱ�����ָ�
+029B D2A3            459              SETB BUZZER
+029D 8B51            460              MOV FALL_TIME_L,R3
+029F 8A52            461              MOV FALL_TIME_H,R2
+02A1 8000            462              SJMP KEY4
+                     463              
+02A3                 464              KEY4:
+02A3 A2B4            465              MOV   C, ADD_SITE      ; ��ȡ����״̬
+02A5 403B            466          JC    KEY5       ; ���C=1������δ���£�����ת
+02A7 7814            467          MOV R0,#20
+02A9                 468              DELAY_S3:
+02A9 B1BD            469              CALL DELAY_1MS
+02AB A2B4            470          MOV   C, ADD_SITE      ; �ٴμ��
+02AD D8FA            471          DJNZ R0,DELAY_S3
+02AF 4031            472          JC    KEY5       ; ����Ƕ�������ת
+02B1                 473              KEY_WAIT_RELEASE3:
+02B1 A2B4            474          MOV   C, ADD_SITE
+02B3 50FC            475          JNC   KEY_WAIT_RELEASE3    ; ������ǵ͵�ƽ�������ȴ�
+                     476              
+02B5 E550            477          MOV A,TIME_ADJUST_MODE
+02B7 B4000A          478          CJNE A,#0,KEY4_1
                      479              
-02B6                 480              KEY4_1:  ;ģʽ3����˸λ�õ���
-02B6 B4020B          481              CJNE A,#2,KEY4_2
-02B9 E4              482              CLR A
-02BA 93              483              MOVC A,@A+DPTR
-02BB B4C362          484              CJNE A, #0XC3,RETURN_SITE
-02BE 9005BC          485              MOV DPTR,#SITE_DATA
-02C1 A3              486              INC DPTR
-02C2 805D            487              SJMP KEY_END
-                     488              
-02C4                 489              KEY4_2:  ;ģʽ2�ļ�¼�������л�
-02C4 758001          490              MOV LCD_DATA,#0X01
-02C7 91B9            491              CALL LCD_WRITE_CMD 
-02C9 055B            492              INC UPRIGHT_TIME_FLAG
-02CB 75F004          493              MOV B,#4
-02CE E55B            494              MOV A,UPRIGHT_TIME_FLAG
-02D0 84              495              DIV AB
-02D1 85F05B          496              MOV UPRIGHT_TIME_FLAG,B
-                     497     
-                     498              
-02D4                 499              KEY5:
-02D4 A2B5            500              MOV   C, SITE_MODE      ; ��ȡ����״̬
-02D6 4049            501          JC    KEY_END       ; ���C=1������δ���£�����ת
-02D8 7814            502          MOV R0,#20
-02DA                 503              DELAY_S4:
-02DA B1AF            504              CALL DELAY_1MS
-02DC A2B5            505          MOV   C, SITE_MODE      ; �ٴμ��
-02DE D8FA            506          DJNZ R0,DELAY_S4
-02E0 403F            507          JC    KEY_END       ; ����Ƕ�������ת
-02E2                 508              KEY_WAIT_RELEASE4:
-02E2 A2B5            509          MOV   C, SITE_MODE
-02E4 50FC            510          JNC   KEY_WAIT_RELEASE4    ; ������ǵ͵�ƽ�������ȴ�
-                     511              
-02E6 758001          512              MOV LCD_DATA,#0X01       ;ģʽ�л�
-02E9 91B9            513              CALL LCD_WRITE_CMD
-02EB 753800          514              MOV TIME_ADJUST_FLAG,#0
-02EE D28C            515              SETB TR0
-02F0 755400          516              MOV TIME_H,#0
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE     9
+02BA E4              480              CLR A    ;ģʽ1����˸λ�õ���
+02BB 93              481              MOVC A,@A+DPTR
+02BC B4806F          482              CJNE A, #0X80,RETURN_SITE
+02BF 9005CA          483              MOV DPTR,#SITE_DATA
+02C2 806B            484              SJMP KEY_END
+                     485              
+02C4                 486              KEY4_1:  ;ģʽ3����˸λ�õ���
+02C4 B4020B          487              CJNE A,#2,KEY4_2
+02C7 E4              488              CLR A
+02C8 93              489              MOVC A,@A+DPTR
+02C9 B4C362          490              CJNE A, #0XC3,RETURN_SITE
+02CC 9005CA          491              MOV DPTR,#SITE_DATA
+02CF A3              492              INC DPTR
+02D0 805D            493              SJMP KEY_END
+                     494              
+02D2                 495              KEY4_2:  ;ģʽ2�ļ�¼�������л�
+02D2 758001          496              MOV LCD_DATA,#0X01
+02D5 91C7            497              CALL LCD_WRITE_CMD 
+02D7 055B            498              INC UPRIGHT_TIME_FLAG
+02D9 75F004          499              MOV B,#4
+02DC E55B            500              MOV A,UPRIGHT_TIME_FLAG
+02DE 84              501              DIV AB
+02DF 85F05B          502              MOV UPRIGHT_TIME_FLAG,B
+                     503     
+                     504              
+02E2                 505              KEY5:
+02E2 A2B5            506              MOV   C, SITE_MODE      ; ��ȡ����״̬
+02E4 4049            507          JC    KEY_END       ; ���C=1������δ���£�����ת
+02E6 7814            508          MOV R0,#20
+02E8                 509              DELAY_S4:
+02E8 B1BD            510              CALL DELAY_1MS
+02EA A2B5            511          MOV   C, SITE_MODE      ; �ٴμ��
+02EC D8FA            512          DJNZ R0,DELAY_S4
+02EE 403F            513          JC    KEY_END       ; ����Ƕ�������ת
+02F0                 514              KEY_WAIT_RELEASE4:
+02F0 A2B5            515          MOV   C, SITE_MODE
+02F2 50FC            516          JNC   KEY_WAIT_RELEASE4    ; ������ǵ͵�ƽ�������ȴ�
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE     9
 
-02F3 755300          517              MOV TIME_L,#0
-02F6 8B51            518              MOV FALL_TIME_L,R3
-02F8 8A52            519              MOV FALL_TIME_H,R2
-02FA C28E            520              CLR TR1
-02FC 758DD8          521              MOV TH1, #0D8H       ; ��λ
-02FF 758BF0          522          MOV TL1, #0F0H       ; ��λ
-0302 D2A3            523              SETB BUZZER
-0304 0550            524          INC TIME_ADJUST_MODE
-0306 75F003          525          MOV B,#MODE_NUMBER
-0309 E550            526              MOV A,TIME_ADJUST_MODE
-030B 84              527              DIV AB
-030C 85F050          528              MOV TIME_ADJUST_MODE,B
-                     529              
-030F 753F00          530              MOV UPRIGHT_TIME_NUMBER,#0
-0312 755B00          531              MOV UPRIGHT_TIME_FLAG,#0
-                     532              
-0315 7839            533              MOV R0,#39H
-0317 7F07            534          MOV R7,#7
-0319                 535          CLEETE1:
-0319 7600            536          MOV @R0,#00H
-031B 08              537          INC R0
-031C DFFB            538          DJNZ R7,CLEETE1
-031E 8001            539              SJMP KEY_END
-                     540              
-0320                 541              RETURN_SITE:
-0320 A3              542              INC DPTR
-                     543              
-0321                 544              KEY_END:
-0321 22              545          RET
-0322                 546     FALL_INC_ONE:
-0322 E4              547          CLR A
-0323 93              548              MOVC A,@A+DPTR
-0324 B4C607          549              CJNE A, #0XC6,FALL_INC_ONE11
-0327 E551            550              MOV A,FALL_TIME_L
-0329 2401            551              ADD A,#1
-032B D4              552              DA A ;�������
-032C F551            553              MOV FALL_TIME_L,A
-                     554              
-032E                 555              FALL_INC_ONE11:
-032E B4C307          556              CJNE A, #0XC3,FALL_INC_ONE_END
-0331 E552            557              MOV A,FALL_TIME_H
-0333 2401            558              ADD A,#1
-0335 D4              559              DA A ;�����
-0336 F552            560              MOV FALL_TIME_H,A
-0338                 561              FALL_INC_ONE_END:
-0338 AB51            562              MOV R3,FALL_TIME_L
-033A AA52            563              MOV R2,FALL_TIME_H
-033C 22              564              RET
-033D                 565     INC_ONE:    
-033D E4              566          CLR A
-033E 93              567              MOVC A,@A+DPTR
-033F B4C90D          568              CJNE A, #0XC9,INC_ONE000
-0342 E530            569              MOV A,SEC
-0344 2401            570              ADD A,#1
-0346 D4              571              DA A ;�����
-0347 F530            572              MOV SEC,A
-0349 B4600D          573              CJNE A,#60H,INC_ONE888 ;�����
-034C 753000          574              MOV SEC,#0
-034F                 575          INC_ONE000:
-034F B4C60F          576          CJNE A, #0XC6,INC_ONE001
-0352 E531            577              MOV A,MINUTE
-0354 2401            578              ADD A,#1
-0356 D4              579              DA A ;
-0357 F531            580              MOV MINUTE,A
-0359                 581              INC_ONE888:
-0359 B46079          582              CJNE A,#60H,INC_ONE_END ;�����
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    10
+                     517              
+02F4 758001          518              MOV LCD_DATA,#0X01       ;ģʽ�л�
+02F7 91C7            519              CALL LCD_WRITE_CMD
+02F9 753800          520              MOV TIME_ADJUST_FLAG,#0
+02FC D28C            521              SETB TR0
+02FE 755400          522              MOV TIME_H,#0
+0301 755300          523              MOV TIME_L,#0
+0304 8B51            524              MOV FALL_TIME_L,R3
+0306 8A52            525              MOV FALL_TIME_H,R2
+0308 C28E            526              CLR TR1
+030A 758DD8          527              MOV TH1, #0D8H       ; ��λ
+030D 758BF0          528          MOV TL1, #0F0H       ; ��λ
+0310 D2A3            529              SETB BUZZER
+0312 0550            530          INC TIME_ADJUST_MODE
+0314 75F003          531          MOV B,#MODE_NUMBER
+0317 E550            532              MOV A,TIME_ADJUST_MODE
+0319 84              533              DIV AB
+031A 85F050          534              MOV TIME_ADJUST_MODE,B
+                     535              
+031D 753F00          536              MOV UPRIGHT_TIME_NUMBER,#0
+0320 755B00          537              MOV UPRIGHT_TIME_FLAG,#0
+                     538              
+0323 7839            539              MOV R0,#39H
+0325 7F07            540          MOV R7,#7
+0327                 541          CLEETE1:
+0327 7600            542          MOV @R0,#00H
+0329 08              543          INC R0
+032A DFFB            544          DJNZ R7,CLEETE1
+032C 8001            545              SJMP KEY_END
+                     546              
+032E                 547              RETURN_SITE:
+032E A3              548              INC DPTR
+                     549              
+032F                 550              KEY_END:
+032F 22              551          RET
+0330                 552     FALL_INC_ONE:
+0330 E4              553          CLR A
+0331 93              554              MOVC A,@A+DPTR
+0332 B4C607          555              CJNE A, #0XC6,FALL_INC_ONE11
+0335 E551            556              MOV A,FALL_TIME_L
+0337 2401            557              ADD A,#1
+0339 D4              558              DA A ;�������
+033A F551            559              MOV FALL_TIME_L,A
+                     560              
+033C                 561              FALL_INC_ONE11:
+033C B4C307          562              CJNE A, #0XC3,FALL_INC_ONE_END
+033F E552            563              MOV A,FALL_TIME_H
+0341 2401            564              ADD A,#1
+0343 D4              565              DA A ;�����
+0344 F552            566              MOV FALL_TIME_H,A
+0346                 567              FALL_INC_ONE_END:
+0346 AB51            568              MOV R3,FALL_TIME_L
+0348 AA52            569              MOV R2,FALL_TIME_H
+034A 22              570              RET
+034B                 571     INC_ONE:    
+034B E4              572          CLR A
+034C 93              573              MOVC A,@A+DPTR
+034D B4C90D          574              CJNE A, #0XC9,INC_ONE000
+0350 E530            575              MOV A,SEC
+0352 2401            576              ADD A,#1
+0354 D4              577              DA A ;�����
+0355 F530            578              MOV SEC,A
+0357 B4600D          579              CJNE A,#60H,INC_ONE888 ;�����
+035A 753000          580              MOV SEC,#0
+035D                 581          INC_ONE000:
+035D B4C60F          582          CJNE A, #0XC6,INC_ONE001
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    10
 
-035C 753100          583              MOV MINUTE,#0
-035F 8074            584              SJMP INC_ONE_END
-0361                 585              INC_ONE001:
-0361 B4C30F          586          CJNE A, #0XC3,INC_ONE002
-0364 E532            587              MOV A,HOUR
-0366 2401            588              ADD A,#1
-0368 D4              589              DA A ;
-0369 F532            590              MOV HOUR,A
-036B B42467          591              CJNE A,#24H,INC_ONE_END ;ʱ���
-036E 753200          592              MOV HOUR,#0
-0371 8062            593              SJMP INC_ONE_END
-0373                 594              INC_ONE002:
-0373 B48941          595          CJNE A, #0X89,INC_ONE003
-0376 E533            596              MOV A,DAY
-0378 2401            597              ADD A,#1
-037A D4              598              DA A ;
-037B F533            599              MOV DAY,A
-                     600              
-037D E534            601              MOV A,MONTH    ;��ѯ�����������
-037F 04              602              INC A
-0380 83              603              MOVC A,@A+PC
-0381 8012            604              SJMP INC_ONE010
-0383 312831          605              DB 31H,28H,31H       ;��Ӧ�·ݱ���:01H,02H,03H
-0386 303130          606              DB 30H,31H,30H       ;��Ӧ�·ݱ���:04H,05H,06H
-0389 313130          607              DB 31H,31H,30H       ;��Ӧ�·ݱ���:07H,08H,09H
-038C 000000          608              DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0AH,0BH,0CH\n
-038F 000000          609              DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0DH,0EH,0FH\n
-0392 313031          610              DB 31H,30H,31H       ;��Ӧ�·ݱ���:10H,11H,12H
-                     611              
-0395                 612              INC_ONE010:
-0395 C3              613              CLR   C
-0396 9533            614              SUBB  A,DAY
-0398 503B            615              JNC   INC_ONE_END                ;����δ��
-039A E534            616              MOV   A,MONTH
-039C B40213          617              CJNE  A,#2,INC_ONE012       ;�Ƕ���
-039F E535            618              MOV   A,YEARL
-03A1 5413            619              ANL   A,#13H           ;��������з�4����������
+0360 E531            583              MOV A,MINUTE
+0362 2401            584              ADD A,#1
+0364 D4              585              DA A ;
+0365 F531            586              MOV MINUTE,A
+0367                 587              INC_ONE888:
+0367 B46079          588              CJNE A,#60H,INC_ONE_END ;�����
+036A 753100          589              MOV MINUTE,#0
+036D 8074            590              SJMP INC_ONE_END
+036F                 591              INC_ONE001:
+036F B4C30F          592          CJNE A, #0XC3,INC_ONE002
+0372 E532            593              MOV A,HOUR
+0374 2401            594              ADD A,#1
+0376 D4              595              DA A ;
+0377 F532            596              MOV HOUR,A
+0379 B42467          597              CJNE A,#24H,INC_ONE_END ;ʱ���
+037C 753200          598              MOV HOUR,#0
+037F 8062            599              SJMP INC_ONE_END
+0381                 600              INC_ONE002:
+0381 B48941          601          CJNE A, #0X89,INC_ONE003
+0384 E533            602              MOV A,DAY
+0386 2401            603              ADD A,#1
+0388 D4              604              DA A ;
+0389 F533            605              MOV DAY,A
+                     606              
+038B E534            607              MOV A,MONTH    ;��ѯ�����������
+038D 04              608              INC A
+038E 83              609              MOVC A,@A+PC
+038F 8012            610              SJMP INC_ONE010
+0391 312831          611              DB 31H,28H,31H       ;��Ӧ�·ݱ���:01H,02H,03H
+0394 303130          612              DB 30H,31H,30H       ;��Ӧ�·ݱ���:04H,05H,06H
+0397 313130          613              DB 31H,31H,30H       ;��Ӧ�·ݱ���:07H,08H,09H
+039A 000000          614              DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0AH,0BH,0CH\n
+039D 000000          615              DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0DH,0EH,0FH\n
+03A0 313031          616              DB 31H,30H,31H       ;��Ӧ�·ݱ���:10H,11H,12H
+                     617              
+03A3                 618              INC_ONE010:
+03A3 C3              619              CLR   C
+03A4 9533            620              SUBB  A,DAY
+03A6 503B            621              JNC   INC_ONE_END                ;����δ��
+03A8 E534            622              MOV   A,MONTH
+03AA B40213          623              CJNE  A,#2,INC_ONE012       ;�Ƕ���
+03AD E535            624              MOV   A,YEARL
+03AF 5413            625              ANL   A,#13H           ;��������з�4����������
                              ��
-03A3 30E402          620              JNB   ACC.4,INC_ONE011
-03A6 2402            621              ADD   A,#2
-03A8                 622              INC_ONE011:
-03A8 5403            623              ANL   A,#3             ;�ܷ�4����
-03AA 7006            624              JNZ   INC_ONE012             ;������
-03AC E533            625              MOV   A,DAY
-03AE 6429            626              XRL   A,#29H
-03B0 6023            627              JZ    INC_ONE_END              ;������¿�����29��
-03B2                 628              INC_ONE012:
-03B2 753301          629              MOV   DAY,#1          ;�������¸��µ�1��        
-03B5 801E            630              SJMP INC_ONE_END
-                     631              
-03B7                 632              INC_ONE003:
-03B7 B4860F          633          CJNE A, #0X86,INC_ONE004
-03BA E534            634              MOV A,MONTH
-03BC 2401            635              ADD A,#1
-03BE D4              636              DA A ;
-03BF F534            637              MOV MONTH,A
-03C1 B41311          638              CJNE A,#13H,INC_ONE_END ;�����
-03C4 753401          639              MOV MONTH,#1
-03C7 800C            640              SJMP INC_ONE_END
-                     641              
-03C9                 642              INC_ONE004:
-03C9 B48309          643          CJNE A, #0X83,INC_ONE_END
-03CC E535            644              MOV A,YEARL
-03CE 2401            645              ADD A,#1
-03D0 D4              646              DA A ;
-03D1 F535            647              MOV YEARL,A
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    11
+03B1 30E402          626              JNB   ACC.4,INC_ONE011
+03B4 2402            627              ADD   A,#2
+03B6                 628              INC_ONE011:
+03B6 5403            629              ANL   A,#3             ;�ܷ�4����
+03B8 7006            630              JNZ   INC_ONE012             ;������
+03BA E533            631              MOV   A,DAY
+03BC 6429            632              XRL   A,#29H
+03BE 6023            633              JZ    INC_ONE_END              ;������¿�����29��
+03C0                 634              INC_ONE012:
+03C0 753301          635              MOV   DAY,#1          ;�������¸��µ�1��        
+03C3 801E            636              SJMP INC_ONE_END
+                     637              
+03C5                 638              INC_ONE003:
+03C5 B4860F          639          CJNE A, #0X86,INC_ONE004
+03C8 E534            640              MOV A,MONTH
+03CA 2401            641              ADD A,#1
+03CC D4              642              DA A ;
+03CD F534            643              MOV MONTH,A
+03CF B41311          644              CJNE A,#13H,INC_ONE_END ;�����
+03D2 753401          645              MOV MONTH,#1
+03D5 800C            646              SJMP INC_ONE_END
+                     647              
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    11
 
-                     648              
-03D3 8000            649              SJMP INC_ONE_END
-03D5                 650              INC_ONE_END: 
-03D5 22              651              RET
-                     652     ;INTT0:
-                     653     ;        PUSH ACC
-                     654     ;        PUSH PSW
-                     655     ;        PUSH 00H
-                     656     ;        PUSH 05H
-                     657     ;        PUSH 06H
-                     658     ;        PUSH 07H
-                     659     ;        MOV TL0,#0C0H ;
-                     660     ;     MOV TH0,#63H ;����
-                     661     ;        
-                     662     ;        DJNZ R4,CLKE111
-                     663     ;        MOV R4,#19H
-                     664     ;        MOV A,SEC
-                     665     ;        ADD A,#1
-                     666     ;        DA A ;ʮ���Ƶ���
-                     667     ;        MOV SEC,A
-                     668     ;        
-                     669     ;        CJNE A,#60H,CLKE111 ;�����
-                     670     ;        MOV SEC,#0
-                     671     ;        MOV A,MINUTE
-                     672     ;        ADD A,#1
-                     673     ;        DA A
-                     674     ;        MOV MINUTE,A
-                     675     ;        
-                     676     ;        CLK0:
-                     677     ;        CJNE A,#60H,CLKE111  ;�����
-                     678     ;        MOV MINUTE,#0
-                     679     ;        MOV A,HOUR
-                     680     ;        ADD A,#1
-                     681     ;        DA A
-                     682     ;        MOV HOUR,A
-                     683     ;        
-                     684     ;        CJNE A,#24H,CLKE111  ;ʱ���
-                     685     ;        MOV HOUR,#0
-                     686     ;        MOV A,DAY
-                     687     ;        ADD A,#1
-                     688     ;        DA A
-                     689     ;        MOV DAY,A
-                     690     ;        MOV A,MONTH    ;��ѯ�����������
-                     691     ;        INC A
-                     692     ;        MOVC A,@A+PC
-                     693     ;        SJMP CLK1
-                     694     ;        DB 31H,28H,31H       ;��Ӧ�·ݱ���:01H,02H,03H
-                     695     ;        DB 30H,31H,30H       ;��Ӧ�·ݱ���:04H,05H,06H
-                     696     ;        DB 31H,31H,30H       ;��Ӧ�·ݱ���:07H,08H,09H
-                     697     ;        DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0AH,0BH,0CH\n
-                     698     ;        DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0DH,0EH,0FH\n
-                     699     ;        DB 31H,30H,31H       ;��Ӧ�·ݱ���:10H,11H,12H
-                     700     ;        
-                     701     ;        CLK1:
-                     702     ;        CLR   C
-                     703     ;        SUBB  A,DAY
-                     704     ;        JNC   CLKE111                ;����δ��
-                     705     ;        MOV   A,MONTH
-                     706     ;        CJNE  A,#2,CLK3       ;�Ƕ���
-                     707     ;        MOV   A,YEARL
-                     708     ;        ANL   A,#13H           ;��������з�4����������
+03D7                 648              INC_ONE004:
+03D7 B48309          649          CJNE A, #0X83,INC_ONE_END
+03DA E535            650              MOV A,YEARL
+03DC 2401            651              ADD A,#1
+03DE D4              652              DA A ;
+03DF F535            653              MOV YEARL,A
+                     654              
+03E1 8000            655              SJMP INC_ONE_END
+03E3                 656              INC_ONE_END: 
+03E3 22              657              RET
+                     658     ;INTT0:
+                     659     ;        PUSH ACC
+                     660     ;        PUSH PSW
+                     661     ;        PUSH 00H
+                     662     ;        PUSH 05H
+                     663     ;        PUSH 06H
+                     664     ;        PUSH 07H
+                     665     ;        MOV TL0,#0C0H ;
+                     666     ;     MOV TH0,#63H ;����
+                     667     ;        
+                     668     ;        DJNZ R4,CLKE111
+                     669     ;        MOV R4,#19H
+                     670     ;        MOV A,SEC
+                     671     ;        ADD A,#1
+                     672     ;        DA A ;ʮ���Ƶ���
+                     673     ;        MOV SEC,A
+                     674     ;        
+                     675     ;        CJNE A,#60H,CLKE111 ;�����
+                     676     ;        MOV SEC,#0
+                     677     ;        MOV A,MINUTE
+                     678     ;        ADD A,#1
+                     679     ;        DA A
+                     680     ;        MOV MINUTE,A
+                     681     ;        
+                     682     ;        CLK0:
+                     683     ;        CJNE A,#60H,CLKE111  ;�����
+                     684     ;        MOV MINUTE,#0
+                     685     ;        MOV A,HOUR
+                     686     ;        ADD A,#1
+                     687     ;        DA A
+                     688     ;        MOV HOUR,A
+                     689     ;        
+                     690     ;        CJNE A,#24H,CLKE111  ;ʱ���
+                     691     ;        MOV HOUR,#0
+                     692     ;        MOV A,DAY
+                     693     ;        ADD A,#1
+                     694     ;        DA A
+                     695     ;        MOV DAY,A
+                     696     ;        MOV A,MONTH    ;��ѯ�����������
+                     697     ;        INC A
+                     698     ;        MOVC A,@A+PC
+                     699     ;        SJMP CLK1
+                     700     ;        DB 31H,28H,31H       ;��Ӧ�·ݱ���:01H,02H,03H
+                     701     ;        DB 30H,31H,30H       ;��Ӧ�·ݱ���:04H,05H,06H
+                     702     ;        DB 31H,31H,30H       ;��Ӧ�·ݱ���:07H,08H,09H
+                     703     ;        DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0AH,0BH,0CH\n
+                     704     ;        DB 00H,00H,00H       ;��Ӧ��Ч�·ݱ���:0DH,0EH,0FH\n
+                     705     ;        DB 31H,30H,31H       ;��Ӧ�·ݱ���:10H,11H,12H
+                     706     ;        
+                     707     ;        CLK1:
+                     708     ;        CLR   C
+                     709     ;        SUBB  A,DAY
+                     710     ;        JNC   CLKE111                ;����δ��
+                     711     ;        MOV   A,MONTH
+                     712     ;        CJNE  A,#2,CLK3       ;�Ƕ���
+                     713     ;        MOV   A,YEARL
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    12
+
+                     714     ;        ANL   A,#13H           ;��������з�4����������
                              ��
-                     709     ;        JNB   ACC.4,CLK2
-                     710     ;        ADD   A,#2
-                     711     ;        CLK2:
-                     712     ;        ANL   A,#3             ;�ܷ�4����
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    12
-
-                     713     ;        JNZ   CLK3             ;������
-                     714     ;        MOV   A,DAY
-                     715     ;        XRL   A,#29H
-                     716     ;        JZ    CLKE111              ;������¿�����29��
-                     717     ;        CLK3:
-                     718     ;        MOV   DAY,#1          ;�������¸��µ�1��
-                     719     ;        MOV   A,MONTH
-                     720     ;        ADD   A,#1
-                     721     ;        DA    A
-                     722     ;        MOV   MONTH,A
-                     723     ;        CJNE  A,#13H,CLKE111
-                     724     ;        MOV   MONTH,#1        ;��������һ���һ�·�
-                     725     ;        MOV   A,YEARL             ;�������
+                     715     ;        JNB   ACC.4,CLK2
+                     716     ;        ADD   A,#2
+                     717     ;        CLK2:
+                     718     ;        ANL   A,#3             ;�ܷ�4����
+                     719     ;        JNZ   CLK3             ;������
+                     720     ;        MOV   A,DAY
+                     721     ;        XRL   A,#29H
+                     722     ;        JZ    CLKE111              ;������¿�����29��
+                     723     ;        CLK3:
+                     724     ;        MOV   DAY,#1          ;�������¸��µ�1��
+                     725     ;        MOV   A,MONTH
                      726     ;        ADD   A,#1
                      727     ;        DA    A
-                     728     ;        MOV   YEARL,A
-                     729     ;        
-                     730     ;        CLKE111:
-                     731     ;        POP 07H
-                     732     ;        POP 06H
-                     733     ;        POP 05H
-                     734     ;        POP 00H
-                     735     ;        POP PSW
-                     736     ;        POP ACC
-                     737     ;        RETI
-                     738              
-03D6                 739     SHOW:
-03D6 E550            740          MOV A,TIME_ADJUST_MODE
-03D8 B4006B          741          CJNE A,#0,SHOW2    ;0��ת
-03DB 7836            742          MOV R0,#YEARH ;����ַ        ģʽ1����ʾ
-03DD 08              743              INC R0
-03DE 758080          744              MOV LCD_DATA,#0X80
-03E1 91B9            745              CALL LCD_WRITE_CMD
-03E3 9197            746              CALL DISPLAY
-03E5 9197            747              CALL DISPLAY
-03E7 75802D          748              MOV LCD_DATA,#45
-03EA 91E4            749              CALL LCD_WRITE_DATA
-03EC 9197            750              CALL DISPLAY
-03EE 75802D          751              MOV LCD_DATA,#45
-03F1 91E4            752              CALL LCD_WRITE_DATA
-03F3 9197            753              CALL DISPLAY
-                     754              
-03F5 C083            755              PUSH DPH
-03F7 C082            756              PUSH DPL
-03F9 9005C5          757              MOV DPTR,#SITE_WEEK
-03FC E4              758          CLR A
-03FD E556            759              MOV A,TIME_WEEK
-03FF 75F003          760              MOV B,#3
-0402 A4              761              MUL AB
-0403 2582            762              ADD A, DPL            ; ����ƫ����
-0405 F582            763          MOV DPL, A
-0407 E5F0            764          MOV A, B
-0409 3583            765          ADDC A, DPH
-040B F583            766          MOV DPH, A
-040D E4              767              CLR A
-040E 93              768          MOVC A, @A+DPTR      ; ��ȡ��һ���ַ�
-040F 75808C          769              MOV LCD_DATA,#0X8C
-0412 91B9            770              CALL LCD_WRITE_CMD
-0414 F580            771              MOV LCD_DATA,A
-0416 91E4            772              CALL LCD_WRITE_DATA
-0418 E4              773              CLR A
-0419 A3              774              INC DPTR
-041A 93              775              MOVC A, @A+DPTR      
-041B F580            776              MOV LCD_DATA,A
-041D 91E4            777              CALL LCD_WRITE_DATA
-041F E4              778              CLR A
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    13
+                     728     ;        MOV   MONTH,A
+                     729     ;        CJNE  A,#13H,CLKE111
+                     730     ;        MOV   MONTH,#1        ;��������һ���һ�·�
+                     731     ;        MOV   A,YEARL             ;�������
+                     732     ;        ADD   A,#1
+                     733     ;        DA    A
+                     734     ;        MOV   YEARL,A
+                     735     ;        
+                     736     ;        CLKE111:
+                     737     ;        POP 07H
+                     738     ;        POP 06H
+                     739     ;        POP 05H
+                     740     ;        POP 00H
+                     741     ;        POP PSW
+                     742     ;        POP ACC
+                     743     ;        RETI
+                     744              
+03E4                 745     SHOW:
+03E4 E550            746          MOV A,TIME_ADJUST_MODE
+03E6 B4006B          747          CJNE A,#0,SHOW2    ;0��ת
+03E9 7836            748          MOV R0,#YEARH ;����ַ        ģʽ1����ʾ
+03EB 08              749              INC R0
+03EC 758080          750              MOV LCD_DATA,#0X80
+03EF 91C7            751              CALL LCD_WRITE_CMD
+03F1 91A5            752              CALL DISPLAY
+03F3 91A5            753              CALL DISPLAY
+03F5 75802D          754              MOV LCD_DATA,#45
+03F8 91F2            755              CALL LCD_WRITE_DATA
+03FA 91A5            756              CALL DISPLAY
+03FC 75802D          757              MOV LCD_DATA,#45
+03FF 91F2            758              CALL LCD_WRITE_DATA
+0401 91A5            759              CALL DISPLAY
+                     760              
+0403 C083            761              PUSH DPH
+0405 C082            762              PUSH DPL
+0407 9005D3          763              MOV DPTR,#SITE_WEEK
+040A E4              764          CLR A
+040B E556            765              MOV A,TIME_WEEK
+040D 75F003          766              MOV B,#3
+0410 A4              767              MUL AB
+0411 2582            768              ADD A, DPL            ; ����ƫ����
+0413 F582            769          MOV DPL, A
+0415 E5F0            770          MOV A, B
+0417 3583            771          ADDC A, DPH
+0419 F583            772          MOV DPH, A
+041B E4              773              CLR A
+041C 93              774          MOVC A, @A+DPTR      ; ��ȡ��һ���ַ�
+041D 75808C          775              MOV LCD_DATA,#0X8C
+0420 91C7            776              CALL LCD_WRITE_CMD
+0422 F580            777              MOV LCD_DATA,A
+0424 91F2            778              CALL LCD_WRITE_DATA
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    13
 
-0420 A3              779              INC DPTR
-0421 93              780              MOVC A, @A+DPTR      
-0422 F580            781              MOV LCD_DATA,A
-0424 91E4            782              CALL LCD_WRITE_DATA
-0426 75802D          783              MOV LCD_DATA,#45
-0429 91E4            784              CALL LCD_WRITE_DATA
-042B D082            785              POP DPL
-042D D083            786              POP DPH
-                     787              
-042F 7580C2          788              MOV LCD_DATA,#0XC2
-0432 91B9            789              CALL LCD_WRITE_CMD
-0434 9197            790              CALL DISPLAY
-0436 75802D          791              MOV LCD_DATA,#45
-0439 91E4            792              CALL LCD_WRITE_DATA
-043B 9197            793              CALL DISPLAY
-043D 75802D          794              MOV LCD_DATA,#45
-0440 91E4            795              CALL LCD_WRITE_DATA
-0442 9197            796              CALL DISPLAY
-0444 8050            797              SJMP SHOW_END
-                     798              
-0446                 799              SHOW2:   
-0446 B4013C          800          CJNE A,#1,SHOW3
-0449 E55B            801          MOV A,UPRIGHT_TIME_FLAG
-044B B40013          802          CJNE A,#0,SHOW4     
-044E 7854            803              MOV R0,#TIME_H ;����ַ   ģʽ2����ʾ
-0450 08              804              INC R0
-0451 7580C2          805              MOV LCD_DATA,#0XC2
-0454 91B9            806              CALL LCD_WRITE_CMD
-0456 9197            807              CALL DISPLAY
-0458 75802D          808              MOV LCD_DATA,#45
-045B 91E4            809              CALL LCD_WRITE_DATA
-045D 9197            810              CALL DISPLAY
-045F 8035            811              SJMP SHOW_END
-                     812              
-0461                 813              SHOW4:      ; ģʽ2�ļ�¼������ʾ
-0461 14              814              DEC A
-0462 25E0            815          ADD A,ACC
-0464 243A            816              ADD A,#TIME_H_1
-0466 F8              817              MOV R0,A;����ַ
-0467 08              818              INC R0
-0468 7580C2          819              MOV LCD_DATA,#0XC2
-046B 91B9            820              CALL LCD_WRITE_CMD
-046D 9197            821              CALL DISPLAY
-046F 75802D          822              MOV LCD_DATA,#45
-0472 91E4            823              CALL LCD_WRITE_DATA
-0474 9197            824              CALL DISPLAY
-                     825              
-0476 7580C9          826          MOV LCD_DATA,#0XC9
-0479 91B9            827              CALL LCD_WRITE_CMD
-047B E55B            828              MOV A,UPRIGHT_TIME_FLAG
-047D 2430            829              ADD A,#30H
-047F F580            830              MOV LCD_DATA,A
-0481 91E4            831              CALL LCD_WRITE_DATA
-                     832     
-                     833              
-0483 8011            834              SJMP SHOW_END
-                     835              
-0485                 836              SHOW3:      ;ģʽ3����ʾ
-0485 7852            837              MOV R0,#FALL_TIME_H ;����ַ
-0487 08              838              INC R0
-0488 7580C2          839              MOV LCD_DATA,#0XC2
-048B 91B9            840              CALL LCD_WRITE_CMD
-048D 9197            841              CALL DISPLAY
-048F 75802D          842              MOV LCD_DATA,#45
-0492 91E4            843              CALL LCD_WRITE_DATA
-0494 9197            844              CALL DISPLAY
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    14
+0426 E4              779              CLR A
+0427 A3              780              INC DPTR
+0428 93              781              MOVC A, @A+DPTR      
+0429 F580            782              MOV LCD_DATA,A
+042B 91F2            783              CALL LCD_WRITE_DATA
+042D E4              784              CLR A
+042E A3              785              INC DPTR
+042F 93              786              MOVC A, @A+DPTR      
+0430 F580            787              MOV LCD_DATA,A
+0432 91F2            788              CALL LCD_WRITE_DATA
+0434 75802D          789              MOV LCD_DATA,#45
+0437 91F2            790              CALL LCD_WRITE_DATA
+0439 D082            791              POP DPL
+043B D083            792              POP DPH
+                     793              
+043D 7580C2          794              MOV LCD_DATA,#0XC2
+0440 91C7            795              CALL LCD_WRITE_CMD
+0442 91A5            796              CALL DISPLAY
+0444 75802D          797              MOV LCD_DATA,#45
+0447 91F2            798              CALL LCD_WRITE_DATA
+0449 91A5            799              CALL DISPLAY
+044B 75802D          800              MOV LCD_DATA,#45
+044E 91F2            801              CALL LCD_WRITE_DATA
+0450 91A5            802              CALL DISPLAY
+0452 8050            803              SJMP SHOW_END
+                     804              
+0454                 805              SHOW2:   
+0454 B4013C          806          CJNE A,#1,SHOW3
+0457 E55B            807          MOV A,UPRIGHT_TIME_FLAG
+0459 B40013          808          CJNE A,#0,SHOW4     
+045C 7854            809              MOV R0,#TIME_H ;����ַ   ģʽ2����ʾ
+045E 08              810              INC R0
+045F 7580C2          811              MOV LCD_DATA,#0XC2
+0462 91C7            812              CALL LCD_WRITE_CMD
+0464 91A5            813              CALL DISPLAY
+0466 75802D          814              MOV LCD_DATA,#45
+0469 91F2            815              CALL LCD_WRITE_DATA
+046B 91A5            816              CALL DISPLAY
+046D 8035            817              SJMP SHOW_END
+                     818              
+046F                 819              SHOW4:      ; ģʽ2�ļ�¼������ʾ
+046F 14              820              DEC A
+0470 25E0            821          ADD A,ACC
+0472 243A            822              ADD A,#TIME_H_1
+0474 F8              823              MOV R0,A;����ַ
+0475 08              824              INC R0
+0476 7580C2          825              MOV LCD_DATA,#0XC2
+0479 91C7            826              CALL LCD_WRITE_CMD
+047B 91A5            827              CALL DISPLAY
+047D 75802D          828              MOV LCD_DATA,#45
+0480 91F2            829              CALL LCD_WRITE_DATA
+0482 91A5            830              CALL DISPLAY
+                     831              
+0484 7580C9          832          MOV LCD_DATA,#0XC9
+0487 91C7            833              CALL LCD_WRITE_CMD
+0489 E55B            834              MOV A,UPRIGHT_TIME_FLAG
+048B 2430            835              ADD A,#30H
+048D F580            836              MOV LCD_DATA,A
+048F 91F2            837              CALL LCD_WRITE_DATA
+                     838     
+                     839              
+0491 8011            840              SJMP SHOW_END
+                     841              
+0493                 842              SHOW3:      ;ģʽ3����ʾ
+0493 7852            843              MOV R0,#FALL_TIME_H ;����ַ
+0495 08              844              INC R0
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    14
 
-                     845              
-0496                 846              SHOW_END:
-0496 22              847              RET
-0497                 848          DISPLAY: ;�����ֽ�����ʾ
-0497 18              849              DEC R0
-0498 E6              850          MOV A,@R0
-0499 75F010          851              MOV B,#10H
-049C 84              852              DIV AB
-049D 2430            853              ADD A,#30H
-049F F580            854              MOV LCD_DATA,A
-04A1 91E4            855              CALL LCD_WRITE_DATA
-04A3 E5F0            856              MOV A,B
-04A5 2430            857              ADD A,#30H
-04A7 F580            858              MOV LCD_DATA,A
-04A9 91E4            859              CALL LCD_WRITE_DATA
-04AB 22              860              RET
-                     861     
-04AC                 862     LCD_CHECK_BUSY:
-04AC C290            863             CLR LCD_RS
-04AE D291            864             SETB LCD_RW
-04B0                 865         READ_BUSY:
-04B0 D2A5            866             SETB LCD_E
-04B2 A287            867             MOV C,LCD_DATA.7
-04B4 C2A5            868             CLR LCD_E
-04B6 40F8            869             JC READ_BUSY
-04B8 22              870             RET
-                     871     
-04B9                 872     LCD_WRITE_CMD:   ;LCDָ��
-04B9 91AC            873         CALL LCD_CHECK_BUSY
-04BB C290            874             CLR LCD_RS
-04BD C291            875             CLR LCD_RW
-                     876             
-04BF C2A5            877             CLR LCD_E
-                     878     ;       MOV LCD_DATA,R1
-04C1 B1AF            879             CALL DELAY_1MS
-04C3 D2A5            880             SETB LCD_E
-04C5 B1AF            881             CALL DELAY_1MS
-04C7 C2A5            882             CLR LCD_E
-04C9 22              883             RET
-                     884     
-04CA                 885     LCD_INIT:  
-04CA 758001          886         MOV LCD_DATA,#0X01
-04CD 91B9            887             CALL LCD_WRITE_CMD
-04CF 758006          888             MOV LCD_DATA,#0X06
-04D2 91B9            889             CALL LCD_WRITE_CMD
-04D4 75800C          890             MOV LCD_DATA,#0X0C
-04D7 91B9            891             CALL LCD_WRITE_CMD
-04D9 758038          892             MOV LCD_DATA,#0X38
-04DC 91B9            893             CALL LCD_WRITE_CMD
-04DE 758080          894             MOV LCD_DATA,#0X80
-04E1 91B9            895             CALL LCD_WRITE_CMD
-04E3 22              896             RET
-                     897     
-04E4                 898     LCD_WRITE_DATA:   ;LCD��������
-04E4 91AC            899         CALL LCD_CHECK_BUSY
-04E6 D290            900             SETB LCD_RS
-04E8 C291            901             CLR LCD_RW
-                     902             
-04EA C2A5            903             CLR LCD_E
-                     904     ;       MOV LCD_DATA,A
-04EC B1AF            905             CALL DELAY_1MS
-04EE D2A5            906             SETB LCD_E
-04F0 B1AF            907             CALL DELAY_1MS
-04F2 C2A5            908             CLR LCD_E
-04F4 22              909             RET
-                     910     
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    15
+0496 7580C2          845              MOV LCD_DATA,#0XC2
+0499 91C7            846              CALL LCD_WRITE_CMD
+049B 91A5            847              CALL DISPLAY
+049D 75802D          848              MOV LCD_DATA,#45
+04A0 91F2            849              CALL LCD_WRITE_DATA
+04A2 91A5            850              CALL DISPLAY
+                     851              
+04A4                 852              SHOW_END:
+04A4 22              853              RET
+04A5                 854          DISPLAY: ;�����ֽ�����ʾ
+04A5 18              855              DEC R0
+04A6 E6              856          MOV A,@R0
+04A7 75F010          857              MOV B,#10H
+04AA 84              858              DIV AB
+04AB 2430            859              ADD A,#30H
+04AD F580            860              MOV LCD_DATA,A
+04AF 91F2            861              CALL LCD_WRITE_DATA
+04B1 E5F0            862              MOV A,B
+04B3 2430            863              ADD A,#30H
+04B5 F580            864              MOV LCD_DATA,A
+04B7 91F2            865              CALL LCD_WRITE_DATA
+04B9 22              866              RET
+                     867     
+04BA                 868     LCD_CHECK_BUSY:
+04BA C290            869             CLR LCD_RS
+04BC D291            870             SETB LCD_RW
+04BE                 871         READ_BUSY:
+04BE D2A5            872             SETB LCD_E
+04C0 A287            873             MOV C,LCD_DATA.7
+04C2 C2A5            874             CLR LCD_E
+04C4 40F8            875             JC READ_BUSY
+04C6 22              876             RET
+                     877     
+04C7                 878     LCD_WRITE_CMD:   ;LCDָ��
+04C7 91BA            879         CALL LCD_CHECK_BUSY
+04C9 C290            880             CLR LCD_RS
+04CB C291            881             CLR LCD_RW
+                     882             
+04CD C2A5            883             CLR LCD_E
+                     884     ;       MOV LCD_DATA,R1
+04CF B1BD            885             CALL DELAY_1MS
+04D1 D2A5            886             SETB LCD_E
+04D3 B1BD            887             CALL DELAY_1MS
+04D5 C2A5            888             CLR LCD_E
+04D7 22              889             RET
+                     890     
+04D8                 891     LCD_INIT:  
+04D8 758001          892         MOV LCD_DATA,#0X01
+04DB 91C7            893             CALL LCD_WRITE_CMD
+04DD 758006          894             MOV LCD_DATA,#0X06
+04E0 91C7            895             CALL LCD_WRITE_CMD
+04E2 75800C          896             MOV LCD_DATA,#0X0C
+04E5 91C7            897             CALL LCD_WRITE_CMD
+04E7 758038          898             MOV LCD_DATA,#0X38
+04EA 91C7            899             CALL LCD_WRITE_CMD
+04EC 758080          900             MOV LCD_DATA,#0X80
+04EF 91C7            901             CALL LCD_WRITE_CMD
+04F1 22              902             RET
+                     903     
+04F2                 904     LCD_WRITE_DATA:   ;LCD��������
+04F2 91BA            905         CALL LCD_CHECK_BUSY
+04F4 D290            906             SETB LCD_RS
+04F6 C291            907             CLR LCD_RW
+                     908             
+04F8 C2A5            909             CLR LCD_E
+                     910     ;       MOV LCD_DATA,A
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    15
 
-04F5                 911     WEEK:       ;���չ�ʽ�����������
-04F5 E535            912         MOV A,YEARL
-04F7 75F010          913         MOV B,#16
-04FA 84              914         DIV AB
-04FB 85F057          915         MOV TEMP_BYTE1,B
-04FE 75F00A          916         MOV B,#10
-0501 A4              917         MUL AB
-0502 2557            918         ADD A,TEMP_BYTE1
-0504 F557            919         MOV TEMP_BYTE1,A ;TEMP_BYTE1=��
-0506 E536            920             MOV A,YEARH
-0508 75F010          921         MOV B,#16
-050B 84              922         DIV AB
-050C 85F058          923         MOV TEMP_BYTE2,B
-050F 75F00A          924         MOV B,#10
-0512 A4              925         MUL AB
-0513 2558            926         ADD A,TEMP_BYTE2
-0515 F558            927         MOV TEMP_BYTE2,A ;TEMP_BYTE2=����
-                     928             
-0517 E534            929             MOV A,MONTH
-0519 75F010          930         MOV B,#16
-051C 84              931         DIV AB
-051D 85F059          932         MOV TEMP_BYTE3,B
-0520 75F00A          933         MOV B,#10
-0523 A4              934         MUL AB
-0524 2559            935         ADD A,TEMP_BYTE3
-0526 F559            936         MOV TEMP_BYTE3,A ;TEMP_BYTE3=��
-                     937             
-0528 E533            938         MOV A,DAY
-052A 75F010          939         MOV B,#16
-052D 84              940         DIV AB
-052E 85F05A          941         MOV TEMP_BYTE4,B
-0531 75F00A          942         MOV B,#10
-0534 A4              943         MUL AB
-0535 255A            944         ADD A,TEMP_BYTE4
-0537 F55A            945         MOV TEMP_BYTE4,A ;TEMP_BYTE4=��
-                     946         
-                     947             ;;����
-0539 E559            948             MOV A, TEMP_BYTE3      ; �·�
-053B B40112          949         CJNE A, #1, CHECK_FEB
-                     950         ; 1�´���
-053E 75590D          951         MOV TEMP_BYTE3, #13   ; month = 13
-                     952         ; ��ݼ�1
-0541 E557            953         MOV A, TEMP_BYTE1
-0543 6004            954         JZ  YEARL_ZERO1       ; ��������λ=0
-0545 1557            955         DEC TEMP_BYTE1
-0547 801A            956         SJMP GETW06
-0549                 957             YEARL_ZERO1:
-0549 755763          958         MOV TEMP_BYTE1, #99   ; �����λ=99
-054C 1558            959         DEC TEMP_BYTE2        ; ���ͼ�1
-054E 8013            960         SJMP GETW06
-                     961         
-0550                 962         CHECK_FEB:
-0550 B40210          963         CJNE A, #2, GETW06    ; �������2�£�ֱ����ת
-                     964         ; 2�´���
-0553 75590E          965         MOV TEMP_BYTE3, #14   ; month = 14
-                     966         ; ��ݼ�1
-0556 E557            967         MOV A, TEMP_BYTE1
-0558 6004            968         JZ  YEARL_ZERO2       ; ��������λ=0
-055A 1557            969         DEC TEMP_BYTE1
-055C 8005            970         SJMP GETW06
-                     971         
-055E                 972         YEARL_ZERO2:
-055E 755763          973         MOV TEMP_BYTE1,#99   ; �����λ=99
-0561 1558            974         DEC TEMP_BYTE2        ; ���ͼ�1
-                     975         ; SJMP GETW06 ����ִ��
-                     976     
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    16
+04FA B1BD            911             CALL DELAY_1MS
+04FC D2A5            912             SETB LCD_E
+04FE B1BD            913             CALL DELAY_1MS
+0500 C2A5            914             CLR LCD_E
+0502 22              915             RET
+                     916     
+0503                 917     WEEK:       ;���չ�ʽ�����������
+0503 E535            918         MOV A,YEARL
+0505 75F010          919         MOV B,#16
+0508 84              920         DIV AB
+0509 85F057          921         MOV TEMP_BYTE1,B
+050C 75F00A          922         MOV B,#10
+050F A4              923         MUL AB
+0510 2557            924         ADD A,TEMP_BYTE1
+0512 F557            925         MOV TEMP_BYTE1,A ;TEMP_BYTE1=��
+0514 E536            926             MOV A,YEARH
+0516 75F010          927         MOV B,#16
+0519 84              928         DIV AB
+051A 85F058          929         MOV TEMP_BYTE2,B
+051D 75F00A          930         MOV B,#10
+0520 A4              931         MUL AB
+0521 2558            932         ADD A,TEMP_BYTE2
+0523 F558            933         MOV TEMP_BYTE2,A ;TEMP_BYTE2=����
+                     934             
+0525 E534            935             MOV A,MONTH
+0527 75F010          936         MOV B,#16
+052A 84              937         DIV AB
+052B 85F059          938         MOV TEMP_BYTE3,B
+052E 75F00A          939         MOV B,#10
+0531 A4              940         MUL AB
+0532 2559            941         ADD A,TEMP_BYTE3
+0534 F559            942         MOV TEMP_BYTE3,A ;TEMP_BYTE3=��
+                     943             
+0536 E533            944         MOV A,DAY
+0538 75F010          945         MOV B,#16
+053B 84              946         DIV AB
+053C 85F05A          947         MOV TEMP_BYTE4,B
+053F 75F00A          948         MOV B,#10
+0542 A4              949         MUL AB
+0543 255A            950         ADD A,TEMP_BYTE4
+0545 F55A            951         MOV TEMP_BYTE4,A ;TEMP_BYTE4=��
+                     952         
+                     953             ;;����
+0547 E559            954             MOV A, TEMP_BYTE3      ; �·�
+0549 B40112          955         CJNE A, #1, CHECK_FEB
+                     956         ; 1�´���
+054C 75590D          957         MOV TEMP_BYTE3, #13   ; month = 13
+                     958         ; ��ݼ�1
+054F E557            959         MOV A, TEMP_BYTE1
+0551 6004            960         JZ  YEARL_ZERO1       ; ��������λ=0
+0553 1557            961         DEC TEMP_BYTE1
+0555 801A            962         SJMP GETW06
+0557                 963             YEARL_ZERO1:
+0557 755763          964         MOV TEMP_BYTE1, #99   ; �����λ=99
+055A 1558            965         DEC TEMP_BYTE2        ; ���ͼ�1
+055C 8013            966         SJMP GETW06
+                     967         
+055E                 968         CHECK_FEB:
+055E B40210          969         CJNE A, #2, GETW06    ; �������2�£�ֱ����ת
+                     970         ; 2�´���
+0561 75590E          971         MOV TEMP_BYTE3, #14   ; month = 14
+                     972         ; ��ݼ�1
+0564 E557            973         MOV A, TEMP_BYTE1
+0566 6004            974         JZ  YEARL_ZERO2       ; ��������λ=0
+0568 1557            975         DEC TEMP_BYTE1
+056A 8005            976         SJMP GETW06
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    16
 
-                     977         ; ============ �������֣�������չ�ʽ ============
-0563                 978         GETW06:
-                     979         ; 1. ���� ?(13m-1)/5?
-0563 E559            980         MOV A, TEMP_BYTE3    ; m
-0565 04              981         INC A                ; m+1   �� �ؼ�����
-0566 75F00D          982         MOV B, #13
-0569 A4              983         MUL AB               ; A = 13(m+1)
-056A 75F005          984         MOV B, #5
-056D 84              985         DIV AB               ; A = ?13(m+1)/5?
-056E F55C            986         MOV TIME_WEEK_1, A            ; R1 = ?13(m+1)/5?
-                     987         
-                     988         ; 2. ���� y + ?y/4?
-0570 E557            989         MOV A, TEMP_BYTE1    ; y
-0572 F55D            990         MOV TIME_WEEK_2, A            ; R2 = y
-0574 75F004          991         MOV B, #4
-0577 84              992         DIV AB               ; A = ?y/4?
-0578 255D            993         ADD A, TIME_WEEK_2            ; A = y + ?y/4?
-057A F55E            994         MOV TIME_WEEK_3, A            ; R3 = y + ?y/4?
-                     995         
-                     996         ; 3. ���� ?c/4? - 2c
-057C E558            997         MOV A, TEMP_BYTE2    ; c
-057E 75F004          998         MOV B, #4
-0581 84              999         DIV AB               ; A = ?c/4?
-0582 F55F           1000         MOV TIME_WEEK_4, A            ; R4 = ?c/4?
+                     977         
+056C                 978         YEARL_ZERO2:
+056C 755763          979         MOV TEMP_BYTE1,#99   ; �����λ=99
+056F 1558            980         DEC TEMP_BYTE2        ; ���ͼ�1
+                     981         ; SJMP GETW06 ����ִ��
+                     982     
+                     983         ; ============ �������֣�������չ�ʽ ============
+0571                 984         GETW06:
+                     985         ; 1. ���� ?(13m-1)/5?
+0571 E559            986         MOV A, TEMP_BYTE3    ; m
+0573 04              987         INC A                ; m+1   �� �ؼ�����
+0574 75F00D          988         MOV B, #13
+0577 A4              989         MUL AB               ; A = 13(m+1)
+0578 75F005          990         MOV B, #5
+057B 84              991         DIV AB               ; A = ?13(m+1)/5?
+057C F55C            992         MOV TIME_WEEK_1, A            ; R1 = ?13(m+1)/5?
+                     993         
+                     994         ; 2. ���� y + ?y/4?
+057E E557            995         MOV A, TEMP_BYTE1    ; y
+0580 F55D            996         MOV TIME_WEEK_2, A            ; R2 = y
+0582 75F004          997         MOV B, #4
+0585 84              998         DIV AB               ; A = ?y/4?
+0586 255D            999         ADD A, TIME_WEEK_2            ; A = y + ?y/4?
+0588 F55E           1000         MOV TIME_WEEK_3, A            ; R3 = y + ?y/4?
                     1001         
-0584 E558           1002         MOV A, TEMP_BYTE2    ; c
-0586 25E0           1003         ADD A, ACC           ; A = 2c (A��2)
-0588 F4             1004         CPL A                ; ȡ��
-0589 04             1005         INC A                ; ��1 = -2c
-058A 255F           1006         ADD A, TIME_WEEK_4            ; A = ?c/4? - 2c
-058C F555           1007         MOV TIME_WEEK_5, A            ; R5 = ?c/4? - 2c
-                    1008         
-                    1009         ; 4. �ܺͼ���
-058E E55A           1010         MOV A, TEMP_BYTE4    ; d
-0590 255C           1011         ADD A, TIME_WEEK_1            ; + ?13(m+1)/5?
-0592 255E           1012         ADD A, TIME_WEEK_3            ; + (y + ?y/4?)
-0594 2555           1013         ADD A, TIME_WEEK_5            ; + (?c/4? - 2c)
+                    1002         ; 3. ���� ?c/4? - 2c
+058A E558           1003         MOV A, TEMP_BYTE2    ; c
+058C 75F004         1004         MOV B, #4
+058F 84             1005         DIV AB               ; A = ?c/4?
+0590 F55F           1006         MOV TIME_WEEK_4, A            ; R4 = ?c/4?
+                    1007         
+0592 E558           1008         MOV A, TEMP_BYTE2    ; c
+0594 25E0           1009         ADD A, ACC           ; A = 2c (A��2)
+0596 F4             1010         CPL A                ; ȡ��
+0597 04             1011         INC A                ; ��1 = -2c
+0598 255F           1012         ADD A, TIME_WEEK_4            ; A = ?c/4? - 2c
+059A F555           1013         MOV TIME_WEEK_5, A            ; R5 = ?c/4? - 2c
                     1014         
-                    1015         ; 5. �������������չ�ʽ�������Ϊ����
-0596 30E705         1016         JNB ACC.7, POSITIVE  ; ������λΪ0��������
-0599                1017         NEGATIVE:
-0599 2407           1018         ADD A, #7            ; ������7
-059B 20E7FB         1019         JB ACC.7, NEGATIVE   ; ������Ǹ�����������
-059E                1020         POSITIVE:
-                    1021         
-                    1022         ; 6. ȡģ7
-059E 75F007         1023         MOV B, #7
-05A1 84             1024         DIV AB               ; B = w mod 7
-                    1025         
-                    1026         ; 7. ������������չ�ʽ��0=������1=����
+                    1015         ; 4. �ܺͼ���
+059C E55A           1016         MOV A, TEMP_BYTE4    ; d
+059E 255C           1017         ADD A, TIME_WEEK_1            ; + ?13(m+1)/5?
+05A0 255E           1018         ADD A, TIME_WEEK_3            ; + (y + ?y/4?)
+05A2 2555           1019         ADD A, TIME_WEEK_5            ; + (?c/4? - 2c)
+                    1020         
+                    1021         ; 5. �������������չ�ʽ�������Ϊ����
+05A4 30E705         1022         JNB ACC.7, POSITIVE  ; ������λΪ0��������
+05A7                1023         NEGATIVE:
+05A7 2407           1024         ADD A, #7            ; ������7
+05A9 20E7FB         1025         JB ACC.7, NEGATIVE   ; ������Ǹ�����������
+05AC                1026         POSITIVE:
+                    1027         
+                    1028         ; 6. ȡģ7
+05AC 75F007         1029         MOV B, #7
+05AF 84             1030         DIV AB               ; B = w mod 7
+                    1031         
+                    1032         ; 7. ������������չ�ʽ��0=������1=����
                              �...6=���壩
-                    1027         ; ����Ҫ����Ϊ��0=���գ�1=��һ...6=����
-05A2 E5F0           1028         MOV A, B
-05A4 B40004         1029         CJNE A, #0, NOT_SAT
-                    1030         ; w=0���������� ����Ϊ6
-05A7 7406           1031         MOV A, #6
-05A9 8001           1032         SJMP STORE_RESULT
-                    1033         
-05AB                1034         NOT_SAT:
-05AB 14             1035         DEC A                ; w-1��1��0�����գ���2��1�����
-                             ���...
-                    1036         
-05AC                1037         STORE_RESULT:
-05AC F556           1038         MOV TIME_WEEK, A
+                    1033         ; ����Ҫ����Ϊ��0=���գ�1=��һ...6=����
+05B0 E5F0           1034         MOV A, B
+05B2 B40004         1035         CJNE A, #0, NOT_SAT
+                    1036         ; w=0���������� ����Ϊ6
+05B5 7406           1037         MOV A, #6
+05B7 8001           1038         SJMP STORE_RESULT
                     1039         
-05AE 22             1040         RET
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    17
+05B9                1040         NOT_SAT:
+05B9 14             1041         DEC A                ; w-1��1��0�����գ���2��1�����
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    17
 
-                    1041     ;    GET_CORRECT:
-                    1042     ;    MOVC A,@A+PCRET
-                    1043     ;    DB 0,3,3,6,1,4,6,2,5,0,3,5
-                    1044             
-05AF                1045     DELAY_1MS:
-05AF 7F02           1046         MOV R7, #2      ; 1����������
-05B1                1047     LOOP1:
-05B1 7E01           1048         MOV R6, #1    ; 1����������
-05B3                1049     LOOP2:
-05B3 7DF9           1050         MOV R5, #249    ; 1����������
-05B5                1051     LOOP3:
-05B5 DDFE           1052         DJNZ R5, LOOP3  ; 2����������
-05B7 DEFA           1053         DJNZ R6, LOOP2  ; 2����������
-05B9 DFF6           1054         DJNZ R7, LOOP1  ; 2����������
-05BB 22             1055         RET             ; 2����������
-05BC                1056     SITE_DATA:
-05BC C9C6C389       1057         DB  0XC9,0XC6,0XC3,0X89,0X86,0X83,0X82,0X81,0X80
-05C0 86838281                
-05C4 80                      
-05C5                1058     SITE_WEEK:              
-05C5 53554E         1059             DB  53H,55H,4EH
-05C8 4D4F4E         1060             DB  4DH,4FH,4EH
-05CB 545545         1061             DB  54H,55H,45H
-05CE 574544         1062             DB  57H,45H,44H
-05D1 544855         1063             DB  54H,48H,55H
-05D4 465249         1064             DB  46H,52H,49H
-05D7 534154         1065             DB  53H,41h,54h
-                    1066     
-                    1067     END
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    18
+                             ���...
+                    1042         
+05BA                1043         STORE_RESULT:
+05BA F556           1044         MOV TIME_WEEK, A
+                    1045         
+05BC 22             1046         RET
+                    1047     ;    GET_CORRECT:
+                    1048     ;    MOVC A,@A+PCRET
+                    1049     ;    DB 0,3,3,6,1,4,6,2,5,0,3,5
+                    1050             
+05BD                1051     DELAY_1MS:
+05BD 7F02           1052         MOV R7, #2      ; 1����������
+05BF                1053     LOOP1:
+05BF 7E01           1054         MOV R6, #1    ; 1����������
+05C1                1055     LOOP2:
+05C1 7DF9           1056         MOV R5, #249    ; 1����������
+05C3                1057     LOOP3:
+05C3 DDFE           1058         DJNZ R5, LOOP3  ; 2����������
+05C5 DEFA           1059         DJNZ R6, LOOP2  ; 2����������
+05C7 DFF6           1060         DJNZ R7, LOOP1  ; 2����������
+05C9 22             1061         RET             ; 2����������
+05CA                1062     SITE_DATA:
+05CA C9C6C389       1063         DB  0XC9,0XC6,0XC3,0X89,0X86,0X83,0X82,0X81,0X80
+05CE 86838281                
+05D2 80                      
+05D3                1064     SITE_WEEK:              
+05D3 53554E         1065             DB  53H,55H,4EH
+05D6 4D4F4E         1066             DB  4DH,4FH,4EH
+05D9 545545         1067             DB  54H,55H,45H
+05DC 574544         1068             DB  57H,45H,44H
+05DF 544855         1069             DB  54H,48H,55H
+05E2 465249         1070             DB  46H,52H,49H
+05E5 534154         1071             DB  53H,41h,54h
+                    1072     
+                    1073     END
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    18
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -1128,100 +1134,100 @@ ACC. . . . . . . . .  D ADDR   00E0H   A
 ADD_ONE. . . . . . .  B ADDR   00B0H.2 A   
 ADD_SITE . . . . . .  B ADDR   00B0H.4 A   
 B. . . . . . . . . .  D ADDR   00F0H   A   
-BCD_TO_DEC . . . . .  C ADDR   0109H   A   
+BCD_TO_DEC . . . . .  C ADDR   0117H   A   
 BUZZER . . . . . . .  B ADDR   00A0H.3 A   
-CHECK_FEB. . . . . .  C ADDR   0550H   A   
+CHECK_FEB. . . . . .  C ADDR   055EH   A   
 CLEETE . . . . . . .  C ADDR   0022H   A   
-CLEETE1. . . . . . .  C ADDR   0319H   A   
+CLEETE1. . . . . . .  C ADDR   0327H   A   
 DAY. . . . . . . . .  D ADDR   0033H   A   
 DEC_ONE. . . . . . .  B ADDR   00B0H.3 A   
-DELAY_1MS. . . . . .  C ADDR   05AFH   A   
-DELAY_S0 . . . . . .  C ADDR   01F6H   A   
-DELAY_S1 . . . . . .  C ADDR   023BH   A   
-DELAY_S2 . . . . . .  C ADDR   027AH   A   
-DELAY_S3 . . . . . .  C ADDR   029BH   A   
-DELAY_S4 . . . . . .  C ADDR   02DAH   A   
-DISPLAY. . . . . . .  C ADDR   0497H   A   
+DELAY_1MS. . . . . .  C ADDR   05BDH   A   
+DELAY_S0 . . . . . .  C ADDR   0204H   A   
+DELAY_S1 . . . . . .  C ADDR   0249H   A   
+DELAY_S2 . . . . . .  C ADDR   0288H   A   
+DELAY_S3 . . . . . .  C ADDR   02A9H   A   
+DELAY_S4 . . . . . .  C ADDR   02E8H   A   
+DISPLAY. . . . . . .  C ADDR   04A5H   A   
 DPH. . . . . . . . .  D ADDR   0083H   A   
 DPL. . . . . . . . .  D ADDR   0082H   A   
-DS1302_DISABLE_WRITE  C ADDR   00FDH   A   
-DS1302_ENABLE_WRITE.  C ADDR   00F1H   A   
-DS1302_READ. . . . .  C ADDR   011DH   A   
-DS1302_READ_BYTE . .  C ADDR   0154H   A   
-DS1302_WRITE . . . .  C ADDR   0131H   A   
-DS1302_WRITE_BYTE. .  C ADDR   0144H   A   
+DS1302_DISABLE_WRITE  C ADDR   010BH   A   
+DS1302_ENABLE_WRITE.  C ADDR   00FFH   A   
+DS1302_READ. . . . .  C ADDR   012BH   A   
+DS1302_READ_BYTE . .  C ADDR   0162H   A   
+DS1302_WRITE . . . .  C ADDR   013FH   A   
+DS1302_WRITE_BYTE. .  C ADDR   0152H   A   
 EA . . . . . . . . .  B ADDR   00A8H.7 A   
 ET1. . . . . . . . .  B ADDR   00A8H.3 A   
-FALL_INC_ONE . . . .  C ADDR   0322H   A   
-FALL_INC_ONE11 . . .  C ADDR   032EH   A   
-FALL_INC_ONE_END . .  C ADDR   0338H   A   
+FALL_INC_ONE . . . .  C ADDR   0330H   A   
+FALL_INC_ONE11 . . .  C ADDR   033CH   A   
+FALL_INC_ONE_END . .  C ADDR   0346H   A   
 FALL_TIME_H. . . . .  D ADDR   0052H   A   
 FALL_TIME_L. . . . .  D ADDR   0051H   A   
-GETW06 . . . . . . .  C ADDR   0563H   A   
+GETW06 . . . . . . .  C ADDR   0571H   A   
 GET_TIME . . . . . .  C ADDR   00A3H   A   
 HOUR . . . . . . . .  D ADDR   0032H   A   
-INC_ONE. . . . . . .  C ADDR   033DH   A   
-INC_ONE000 . . . . .  C ADDR   034FH   A   
-INC_ONE001 . . . . .  C ADDR   0361H   A   
-INC_ONE002 . . . . .  C ADDR   0373H   A   
-INC_ONE003 . . . . .  C ADDR   03B7H   A   
-INC_ONE004 . . . . .  C ADDR   03C9H   A   
-INC_ONE010 . . . . .  C ADDR   0395H   A   
-INC_ONE011 . . . . .  C ADDR   03A8H   A   
-INC_ONE012 . . . . .  C ADDR   03B2H   A   
-INC_ONE888 . . . . .  C ADDR   0359H   A   
-INC_ONE_END. . . . .  C ADDR   03D5H   A   
-INTT1. . . . . . . .  C ADDR   0171H   A   
+INC_ONE. . . . . . .  C ADDR   034BH   A   
+INC_ONE000 . . . . .  C ADDR   035DH   A   
+INC_ONE001 . . . . .  C ADDR   036FH   A   
+INC_ONE002 . . . . .  C ADDR   0381H   A   
+INC_ONE003 . . . . .  C ADDR   03C5H   A   
+INC_ONE004 . . . . .  C ADDR   03D7H   A   
+INC_ONE010 . . . . .  C ADDR   03A3H   A   
+INC_ONE011 . . . . .  C ADDR   03B6H   A   
+INC_ONE012 . . . . .  C ADDR   03C0H   A   
+INC_ONE888 . . . . .  C ADDR   0367H   A   
+INC_ONE_END. . . . .  C ADDR   03E3H   A   
+INTT1. . . . . . . .  C ADDR   017FH   A   
 IO . . . . . . . . .  B ADDR   00A0H.7 A   
-KEY1 . . . . . . . .  C ADDR   01F0H   A   
-KEY1_1 . . . . . . .  C ADDR   0219H   A   
-KEY1_2 . . . . . . .  C ADDR   0224H   A   
-KEY2 . . . . . . . .  C ADDR   0235H   A   
-KEY2_1 . . . . . . .  C ADDR   0255H   A   
-KEY2_2 . . . . . . .  C ADDR   0259H   A   
-KEY3 . . . . . . . .  C ADDR   0274H   A   
-KEY3_1 . . . . . . .  C ADDR   028DH   A   
-KEY4 . . . . . . . .  C ADDR   0295H   A   
-KEY4_1 . . . . . . .  C ADDR   02B6H   A   
-KEY4_2 . . . . . . .  C ADDR   02C4H   A   
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    19
+KEY1 . . . . . . . .  C ADDR   01FEH   A   
+KEY1_1 . . . . . . .  C ADDR   0227H   A   
+KEY1_2 . . . . . . .  C ADDR   0232H   A   
+KEY2 . . . . . . . .  C ADDR   0243H   A   
+KEY2_1 . . . . . . .  C ADDR   0263H   A   
+KEY2_2 . . . . . . .  C ADDR   0267H   A   
+KEY3 . . . . . . . .  C ADDR   0282H   A   
+KEY3_1 . . . . . . .  C ADDR   029BH   A   
+KEY4 . . . . . . . .  C ADDR   02A3H   A   
+KEY4_1 . . . . . . .  C ADDR   02C4H   A   
+KEY4_2 . . . . . . .  C ADDR   02D2H   A   
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    19
 
-KEY5 . . . . . . . .  C ADDR   02D4H   A   
-KEY_END. . . . . . .  C ADDR   0321H   A   
-KEY_SCAN . . . . . .  C ADDR   01D7H   A   
-KEY_WAIT_RELEASE0. .  C ADDR   01FEH   A   
-KEY_WAIT_RELEASE1. .  C ADDR   0243H   A   
-KEY_WAIT_RELEASE2. .  C ADDR   0282H   A   
-KEY_WAIT_RELEASE3. .  C ADDR   02A3H   A   
-KEY_WAIT_RELEASE4. .  C ADDR   02E2H   A   
-LCD_CHECK_BUSY . . .  C ADDR   04ACH   A   
+KEY5 . . . . . . . .  C ADDR   02E2H   A   
+KEY_END. . . . . . .  C ADDR   032FH   A   
+KEY_SCAN . . . . . .  C ADDR   01E5H   A   
+KEY_WAIT_RELEASE0. .  C ADDR   020CH   A   
+KEY_WAIT_RELEASE1. .  C ADDR   0251H   A   
+KEY_WAIT_RELEASE2. .  C ADDR   0290H   A   
+KEY_WAIT_RELEASE3. .  C ADDR   02B1H   A   
+KEY_WAIT_RELEASE4. .  C ADDR   02F0H   A   
+LCD_CHECK_BUSY . . .  C ADDR   04BAH   A   
 LCD_DATA . . . . . .  D ADDR   0080H   A   
 LCD_E. . . . . . . .  B ADDR   00A0H.5 A   
-LCD_INIT . . . . . .  C ADDR   04CAH   A   
+LCD_INIT . . . . . .  C ADDR   04D8H   A   
 LCD_RS . . . . . . .  B ADDR   0090H.0 A   
 LCD_RW . . . . . . .  B ADDR   0090H.1 A   
-LCD_WRITE_CMD. . . .  C ADDR   04B9H   A   
-LCD_WRITE_DATA . . .  C ADDR   04E4H   A   
-LOOP1. . . . . . . .  C ADDR   05B1H   A   
-LOOP2. . . . . . . .  C ADDR   05B3H   A   
-LOOP3. . . . . . . .  C ADDR   05B5H   A   
+LCD_WRITE_CMD. . . .  C ADDR   04C7H   A   
+LCD_WRITE_DATA . . .  C ADDR   04F2H   A   
+LOOP1. . . . . . . .  C ADDR   05BFH   A   
+LOOP2. . . . . . . .  C ADDR   05C1H   A   
+LOOP3. . . . . . . .  C ADDR   05C3H   A   
 MAIN . . . . . . . .  C ADDR   008EH   A   
 MAIN1. . . . . . . .  C ADDR   0097H   A   
 MAIN2. . . . . . . .  C ADDR   009AH   A   
 MINUTE . . . . . . .  D ADDR   0031H   A   
 MODE_NUMBER. . . . .  N NUMB   0003H   A   
 MONTH. . . . . . . .  D ADDR   0034H   A   
-NEGATIVE . . . . . .  C ADDR   0599H   A   
-NOT_SAT. . . . . . .  C ADDR   05ABH   A   
+NEGATIVE . . . . . .  C ADDR   05A7H   A   
+NOT_SAT. . . . . . .  C ADDR   05B9H   A   
 P0 . . . . . . . . .  D ADDR   0080H   A   
 P1 . . . . . . . . .  D ADDR   0090H   A   
 P2 . . . . . . . . .  D ADDR   00A0H   A   
 P3 . . . . . . . . .  D ADDR   00B0H   A   
-POSITIVE . . . . . .  C ADDR   059EH   A   
+POSITIVE . . . . . .  C ADDR   05ACH   A   
 PSW. . . . . . . . .  D ADDR   00D0H   A   
 PT1. . . . . . . . .  B ADDR   00B8H.3 A   
-RB_LOOP. . . . . . .  C ADDR   015BH   A   
-READ_BUSY. . . . . .  C ADDR   04B0H   A   
+RB_LOOP. . . . . . .  C ADDR   0169H   A   
+READ_BUSY. . . . . .  C ADDR   04BEH   A   
 READ_DAY . . . . . .  N NUMB   0087H   A   
 READ_HOUR. . . . . .  N NUMB   0085H   A   
 READ_MIN . . . . . .  N NUMB   0083H   A   
@@ -1229,22 +1235,22 @@ READ_MONTH . . . . .  N NUMB   0089H   A
 READ_SEC . . . . . .  N NUMB   0081H   A   
 READ_WEEK. . . . . .  N NUMB   008BH   A   
 READ_YEAR. . . . . .  N NUMB   008DH   A   
-RETURN_SITE. . . . .  C ADDR   0320H   A   
+RETURN_SITE. . . . .  C ADDR   032EH   A   
 RST. . . . . . . . .  B ADDR   0090H.2 A   
 SCLK . . . . . . . .  B ADDR   0090H.7 A   
 SEC. . . . . . . . .  D ADDR   0030H   A   
-SHOW . . . . . . . .  C ADDR   03D6H   A   
-SHOW2. . . . . . . .  C ADDR   0446H   A   
-SHOW3. . . . . . . .  C ADDR   0485H   A   
-SHOW4. . . . . . . .  C ADDR   0461H   A   
-SHOW_END . . . . . .  C ADDR   0496H   A   
-SITE_DATA. . . . . .  C ADDR   05BCH   A   
+SHOW . . . . . . . .  C ADDR   03E4H   A   
+SHOW2. . . . . . . .  C ADDR   0454H   A   
+SHOW3. . . . . . . .  C ADDR   0493H   A   
+SHOW4. . . . . . . .  C ADDR   046FH   A   
+SHOW_END . . . . . .  C ADDR   04A4H   A   
+SITE_DATA. . . . . .  C ADDR   05CAH   A   
 SITE_MODE. . . . . .  B ADDR   00B0H.5 A   
 SITE_MODE2 . . . . .  B ADDR   00B0H.6 A   
-SITE_WEEK. . . . . .  C ADDR   05C5H   A   
+SITE_WEEK. . . . . .  C ADDR   05D3H   A   
 SP . . . . . . . . .  D ADDR   0081H   A   
 START. . . . . . . .  C ADDR   001EH   A   
-STORE_RESULT . . . .  C ADDR   05ACH   A   
+STORE_RESULT . . . .  C ADDR   05BAH   A   
 TEMP_BYTE1 . . . . .  D ADDR   0057H   A   
 TEMP_BYTE2 . . . . .  D ADDR   0058H   A   
 TEMP_BYTE3 . . . . .  D ADDR   0059H   A   
@@ -1252,7 +1258,7 @@ TEMP_BYTE4 . . . . .  D ADDR   005AH   A
 TH0. . . . . . . . .  D ADDR   008CH   A   
 TH1. . . . . . . . .  D ADDR   008DH   A   
 TIMES. . . . . . . .  D ADDR   0021H   A   
-A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 14:27:44 PAGE    20
+A51 MACRO ASSEMBLER  MAIN                                                                 06/04/2026 15:28:58 PAGE    20
 
 TIME_ADJUST. . . . .  B ADDR   00B0H.1 A   
 TIME_ADJUST_FLAG . .  D ADDR   0038H   A   
@@ -1280,18 +1286,18 @@ TR0. . . . . . . . .  B ADDR   0088H.4 A
 TR1. . . . . . . . .  B ADDR   0088H.6 A   
 UPRIGHT_TIME_FLAG. .  D ADDR   005BH   A   
 UPRIGHT_TIME_NUMBER.  D ADDR   003FH   A   
-WB_LOOP. . . . . . .  C ADDR   0148H   A   
-WEEK . . . . . . . .  C ADDR   04F5H   A   
-WRITE_ALL_TIME . . .  C ADDR   00C7H   A   
-WUYU . . . . . . . .  C ADDR   01DDH   A   
+WB_LOOP. . . . . . .  C ADDR   0156H   A   
+WEEK . . . . . . . .  C ADDR   0503H   A   
+WRITE_ALL_TIME . . .  C ADDR   00CEH   A   
+WUYU . . . . . . . .  C ADDR   01EBH   A   
 YEARH. . . . . . . .  D ADDR   0036H   A   
 YEARL. . . . . . . .  D ADDR   0035H   A   
-YEARL_ZERO1. . . . .  C ADDR   0549H   A   
-YEARL_ZERO2. . . . .  C ADDR   055EH   A   
-ZD11 . . . . . . . .  C ADDR   01C8H   A   
-ZD22 . . . . . . . .  C ADDR   01A4H   A   
-ZD33 . . . . . . . .  C ADDR   01AFH   A   
-ZD44 . . . . . . . .  C ADDR   01B8H   A   
+YEARL_ZERO1. . . . .  C ADDR   0557H   A   
+YEARL_ZERO2. . . . .  C ADDR   056CH   A   
+ZD11 . . . . . . . .  C ADDR   01D6H   A   
+ZD22 . . . . . . . .  C ADDR   01B2H   A   
+ZD33 . . . . . . . .  C ADDR   01BDH   A   
+ZD44 . . . . . . . .  C ADDR   01C6H   A   
 
 
 REGISTER BANK(S) USED: 0 
